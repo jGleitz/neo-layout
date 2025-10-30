@@ -1,0 +1,1361 @@
+<?xml version="1.0"?>
+<course>
+ <id>{680e81a6-8a6d-4cf6-a795-52e5af956d46}</id>
+ <title>Deutsch Bone</title>
+ <description>Homepage: http://neo-layout.org/wiki/Bone
+IRC: #neo im freenode
+Januar 2018, Namigator
+Mit (bearbeiteten) Übungen Carsten MISCHKE : Deutsch Neo 2
+Mit weiteren Übungen für BONE 2025 Manuel Soukup</description>
+ <keyboardLayout>de(bone)</keyboardLayout>
+ <lessons>
+  <lesson>
+   <id>{28f7394f-f4e2-430b-88f4-77a3ce3e1e6e}</id>
+   <title>1.1) Zeigefinger: e und n</title>
+   <newCharacters>en</newCharacters>
+   <text>ee ee ee ee eeee eeee ee ee ee ee
+nn nn nn nn nnnn nnnn nn nn nn nn
+en en en en enne en en en en enne
+ne ne ne ne nenn ne ne ne ne nenn
+
+nenne nenne nenne nenne
+nennen nennen nennen nennen
+nenne nennen nenne nennen
+nenne nennen nenne nennen
+
+ee ee ee ee eeee eeee ee ee ee ee
+nn nn nn nn nnnn nnnn nn nn nn nn
+en en en en enne en en en en enne
+ne ne ne ne nenn ne ne ne ne nenn</text>
+  </lesson>
+  <lesson>
+   <id>{33ba561a-4269-4881-bddf-4d1615caa196}</id>
+   <title>1.2) Mittelfinger: i und r</title>
+   <newCharacters>ir</newCharacters>
+   <text>ii ii ii ii iiii iiii ii ii ii ii
+rr rr rr rr rrrr rrrr rr rr rr rr
+ir ir ir ir irr irr irr irr ir ir
+ri ri ri ri ir ir ir ir ri ri ri ri
+ir ri ir ri ir ri ir ri ir ri ir ri
+
+ein nenner ein nir ein nenner ein nenner
+ein nir ein nir ein nr ein nr
+ein nir ein nir ein nr ein nr
+ie rn ie rn ie rn ie rn
+in ir in ir in ir in ir
+re ri re ri re ri re ri
+
+er er er er en en en en
+ei ei ei ei ie ie ie ie
+
+innen ern
+rein nein inne rien eine
+ein nenner ein nir ein nenner ein nenner
+</text>
+  </lesson>
+  <lesson>
+   <id>{5350f9dd-b6bb-48e5-86ad-47ced110f54d}</id>
+   <title>1.3) Wörter mit e, n, i, r</title>
+   <newCharacters></newCharacters>
+   <text>ein ein ein ein nie nie nie nie
+einer einer einen einen nein nein nein nein
+rein rein rein rein
+ein eine einer einen
+rein reine reiner reinen
+rein nein rein nein
+nennen nenner rennen renner
+irren irrer irren irrer
+niere nieren niere nieren</text>
+  </lesson>
+  <lesson>
+   <id>{b11ad008-b30b-482e-8a56-94ff9b37fffa}</id>
+   <title>1.4) Ringfinger: t und s</title>
+   <newCharacters>ts</newCharacters>
+   <text>tt tt tt tt tttt tttt tt tt tt tt
+ss ss ss ss ssss ssss ss ss ss ss
+ts ts ts ts st st st st
+tsts tsts stst stst
+
+tn tr ts tn tr ts
+se si st se si st
+nt rt st nt rt st
+es is ts es is ts
+
+te sn te sn et ns et ns
+
+eis eis eis eis
+sie sie sie sie
+sei sei sei sei
+seit seit seit seit
+sst sst sst sst
+
+stie stei stie stei
+stie stei stie stei</text>
+  </lesson>
+  <lesson>
+   <id>{cf5a0e9f-eeae-4357-b42e-7b066832a0f3}</id>
+   <title>1.5) kleine Finger: c und g</title>
+   <newCharacters>cg</newCharacters>
+   <text>cc cc cc cc cccc cccc cc cc cc cc
+gg gg gg gg gggg gggg gg gg gg gg
+cg cg cg cg gc gc gc gc
+cg cg cg cg gc gc gc gc
+
+ct ci ce gs gr gn
+ec ic tc ng rg sg
+ctie gsrn eitc nrsg
+
+sc sc sc sc sc sc sc sc
+ic ic ic ic ic ic ic ic
+ge ge ge ge ge ge ge ge
+ng ng ng ng ng ng ng ng
+
+nic nic nic nic
+ric ric ric ric
+rec rec rec rec</text>
+  </lesson>
+  <lesson>
+   <id>{331400d5-baad-4397-8289-1172e546a306}</id>
+   <title>1.6) Grundstellung ctie nrsg</title>
+   <newCharacters></newCharacters>
+   <text>ee nn ee nn eeee nnnn eeee nnnn ee nn ee nn
+nene nene ne ne ne ne enen enen en en en en
+ne en ne en ne en nennen en ne en ne en ne
+
+ii rr ii rr iiii rrrr iiii rrrr ii rr ii rr
+irir irir ir ir ir ir riri riri ri ri ri ri
+ir ri ir ri ir ri irren ri ir ri ir ri ir
+
+tt ss tt ss tttt ssss tttt ssss tt ss tt ss
+tsts tsts ts ts ts ts stst stst st st st st
+ts st ts st ts st stein st ts st ts st ts
+
+cc gg cc gg cccc gggg cccc gggg cc gg cc gg
+cgcg cgcg cg cg cg cg gcgc gcgc gc gc gc gc
+cg gc cg gc cg gc gen cern gc cg gc cg gc cg
+
+sein rein gern nest
+erst ring sieg sein
+tier nein sing ring
+streng regen geist nein
+
+sein rein gern nest
+erst ring sieg sein
+tier nein sing ring
+streng regen geist nein</text>
+  </lesson>
+  <lesson>
+   <id>{c4b8dd5a-7a4a-4ce6-8176-869c8867d63d}</id>
+   <title>1.7) Wörter mit  ..., t, s, c, g</title>
+   <newCharacters></newCharacters>
+   <text>sein sein sein sein
+reis reis reis reis
+nest nest nest nest
+test test test test
+stein stein stein stein
+stier stier stier stier
+stirn stirn stirn stirn
+nennt nennt rennt rennt
+ist ist nist nist
+trennen trennt trennen trennt
+trist trist trist trist
+
+ein nie ist nein rein reis nest test tier gern cern nist
+niere stein stier stirn stern trist geist gegen nieren
+gestirn ein eine einer einen nenne nenner nennen nennt renne
+rennen rennt irre irrer irren irrt sein seine seiner seinen
+trenne trennen trennt</text>
+  </lesson>
+  <lesson>
+   <id>{06209033-7db8-4a74-bc95-9174defe6434}</id>
+   <title>1.8) Mehr Zeigefinger: o und b</title>
+   <newCharacters>ob</newCharacters>
+   <text>oo oo oo oo oooo oooo oo oo oo oo
+bb bb bb bb bbbb bbbb bb bb bb bb
+ob ob ob ob bo bo bo bo
+
+ob on or os og
+bo be bi bt bc
+bo no ro so go
+ob eb ib tb cb
+
+bei bis bin ob so bob go
+bone bone bone bone
+
+bei bis bin ob so bob go
+bone bone bone bone</text>
+  </lesson>
+  <lesson>
+   <id>{eca0c9fe-7fc4-4b71-9170-3eca4dfe03e1}</id>
+   <title>1.9) Mehr kleiner Finger: q</title>
+   <newCharacters>q</newCharacters>
+   <text>qq qq qq qq qqqq qqqq qq qq qq qq
+gg qq gg qq gg qq gg qq
+qb qn qr qs qg
+qo qe qi qt qc
+bq nq rq sq gq
+oq eq iq tq cq</text>
+  </lesson>
+  <lesson>
+   <id>{bbb1c047-473b-4b1f-b226-3a2d2ed90a57}</id>
+   <title>1.10) Übung: Grundlinie</title>
+   <newCharacters></newCharacters>
+   <text>nebenbei geben neben eben bei bis bob bitte bier bin cern
+
+gegen nennen stern bist tier ist tiger big gib gier reisig
+
+ring rost ost obst sieb nie ein gier reis stier eis nein
+
+bein nest test gern niere rennst irrst trist nebenbei geben
+neben eben bei bis bob bitte bier bin cern gegen nennen
+
+stern bist tier ist tiger big gib gier reisig ring rost ost
+obst sieb nie ein gier reis stier eis nein bein nest test
+
+gern niere rennst irrst trist nebenbei geben neben eben bei
+bis bob bitte bier bin cern gegen nennen stern bist tier ist
+
+tiger big gib gier reisig ring rost ost obst sieb nie ein
+
+gier reis stier eis nein bein nest test gern niere rennst
+irrst trist
+
+ctie gsrn ctie gsrn ctie gsrn ctie gsrn
+
+eitc nrsg eitc nrsg eitc nrsg eict nrsg
+
+ctie nrsg ctie nrsg gsrn eitc gsrn eitc
+
+ob bone ein nen st ic ec ge gen gn</text>
+  </lesson>
+  <lesson>
+   <id>{8b6c4bd8-d585-43f8-b528-155d49615758}</id>
+   <title>2.1) Zeigefinger: a und h</title>
+   <newCharacters>ah</newCharacters>
+   <text>aa aa aa aa aaaa aaaa aa aa aa aa
+hh hh hh hh hhhh hhhh hh hh hh hh
+ah ah ah ah aha aha ah ah ah ah
+ha ha ha ha hahaha ha ha ha ha
+
+ab an ar as ag aq
+ho he hi ht hc
+ch sch ch sch ch sch
+an sa an sa an sa
+ta te sa se na ne
+ahn hab has hin hie hei</text>
+  </lesson>
+  <lesson>
+   <id>{07fb2869-fba3-43fd-8873-607eec24123e}</id>
+   <title>2.2) Mittelfinger u und l</title>
+   <newCharacters>ul</newCharacters>
+   <text>u u u u u u u u u u u u u u u u u u
+l l l l l l l l l l l l l l l l l l
+
+uu uu uu uu uu uu uu uu uu uu uu uuu
+uu uu uu uu uu uu uu uu uu uu uu uuu
+
+ll ll ll ll ll ll ll ll ll ll ll ll 
+ll ll ll ll ll ll ll ll ll ll ll ll 
+
+ul ul ul ul ul
+lu lu lu lu lu
+
+ull ull ull ull 
+lul lul lul lul
+
+ulul lulu null
+
+ultra lulla lulu null
+lulu ultra null
+ul lulu</text>
+  </lesson>
+  <lesson>
+   <id>{fd7701e9-a28d-4d7e-90bf-0a9d4611bb77}</id>
+   <title>2.3) Wörter mit ..., a, h, u, l</title>
+   <newCharacters></newCharacters>
+   <text>ha ah la al
+ul lu hula aula
+
+lauch hallu ulha
+haula hula aula
+
+lauch hula aula hallu
+
+aula lauch hallo haus
+haul huhu lauh lauh lau
+hahn aluhut aluhut
+
+aula lauch hallo haus
+haul huhu lauh lauh lau
+hahn aluhut aluhut</text>
+  </lesson>
+  <lesson>
+   <id>{9a9cef48-f1b6-475d-86b6-5815bf2ee5ec}</id>
+   <title>2.4) Ringfinger: d und m</title>
+   <newCharacters>dm</newCharacters>
+   <text>d d d d d d d d d d d
+
+dd dd dd dd dd dd dd dd dd  
+
+m m m m m m m m m m m
+
+mm mm mm mm mm mm mm mm mm 
+
+dd mm d m dm md md md dd mmd mmd
+
+d ddm dmd dm dd mm mm mmd md dm
+
+mad dam mal dim mud
+mama mund hand dann
+
+da am du mal madam
+madam am mund da du
+
+dumm mal mund mama
+da mal mama mund</text>
+  </lesson>
+  <lesson>
+   <id>{de477275-ec93-4b1a-b250-82e3cdb8f21f}</id>
+   <title>2.5) kleine Finger: j und w</title>
+   <newCharacters>jw</newCharacters>
+   <text>j j j j  w w w w
+j j j j  w w w w
+
+j j j j  w w w w
+j j j j  w w w w
+
+jw wj jw wj jw wj
+ja je ji jo ju
+
+jw wj jw wj jw wj
+ja je ji jo ju
+
+we wa wi wo wu
+ja je ji jo ju
+
+we wa wi wo wu
+jaja jein juli jute jura
+
+war wir wie weil wow
+
+wand wahl wunde wiese
+ja war wir wie weil
+
+weil ja war wir wow
+
+jawohl jaja wow weil
+weil ja wow jawi</text>
+  </lesson>
+  <lesson>
+   <id>{ff30c088-ae4f-4897-8579-7b391ae4a069}</id>
+   <title>2.6) Mehr Zeigefinger: x und p</title>
+   <newCharacters>xp</newCharacters>
+   <text>xx xx xx xx xxx
+pp pp pp pp pp
+
+p p p p p p p
+x p px xp xp px
+
+xx xx xx xx xx 
+pp p pp p pp p
+
+x xx xx xx x
+x x x x  p p p p
+
+xp px xp px xp px
+nix nix max tax mix
+
+pi pa pup pip pupi
+pax pix pimp papx
+
+mixpa pipi max pup
+pax nix pi pup
+
+tax pip pupi pix
+
+pimp max pa pip
+pax mixpa nix tax
+
+pi pup pupi pa pip</text>
+  </lesson>
+  <lesson>
+   <id>{31977012-0832-4c71-80dd-f82ddcfad492}</id>
+   <title>2.7) Mehr kleiner Finger: ß</title>
+   <newCharacters>ß</newCharacters>
+   <text>ß ß ß ß
+
+s ß s ß
+
+ß s ß s
+
+ß ß ß ß
+
+s ß s ß
+
+ß s ß s
+
+weiß weiß weiß
+
+guß guß guß
+
+spaß spaß spaß
+
+gußweg gußweg
+
+weißes weißes
+
+groß groß groß
+</text>
+  </lesson>
+  <lesson>
+   <id>{8b652777-cf5e-4b39-94f0-c3f1d0a72165}</id>
+   <title>2.8) Übung: Oberlinie</title>
+   <newCharacters></newCharacters>
+   <text>j d u a x
+p h l m w ß
+
+j d u a x
+p h l m w ß
+
+j d u a x
+p h l m w ß
+
+j p d h u l a m x w ß
+x a u d j p h l m w ß
+
+ju da ax up ph hm lw mß
+
+ja du uh ax pl hm wm ß
+
+jh ul dm pw xa lh mw ß
+
+juda axel duma maß hall
+jude alex mad dumm maaß
+
+juda axel duma maß hall
+jude alex mad dumm maaß
+
+</text>
+  </lesson>
+  <lesson>
+   <id>{6e7e10f7-5cc0-4752-b122-4c7df26dd183}</id>
+   <title>3.1) Zeigefinger: ä und z</title>
+   <newCharacters>äz</newCharacters>
+   <text>ä ä ä ä  z z z z
+ä z ä z  z ä z ä
+
+ä ä ä ä  z z z z
+ä z ä z  z ä z ä
+
+zä äz zä äz
+za az za az
+
+zäh äz zap äzen
+äzä zaz äza zä
+
+zä zäh äz äzen
+zap zaum äzen äz
+
+zä äz zä äz za az
+
+zaum äzen zäh zaum äzen zäh 
+zaum äzen zäh zaum äzen zäh </text>
+  </lesson>
+  <lesson>
+   <id>{acc96054-1bdb-4a20-941a-d9a9ab63ee92}</id>
+   <title>3.2) Mittelfinger: ü und ,</title>
+   <newCharacters>ü,</newCharacters>
+   <text>ü ü ü ü  ,, ,, ,, ,,
+üs ,, üs ,, ,ü ,ü ,ü ,ü
+
+üb tü mü üb
+,ü ,ü ,, ,ü
+
+ü, mü, tü, üb
+,ü ü, ,ü ü,
+
+über müde büro übte
+müde büro über, müde
+
+büro, übte müde, büro
+über müde büro
+
+übte müde</text>
+  </lesson>
+  <lesson>
+   <id>{281e85d3-4e8b-49ca-ac8c-f4d589892723}</id>
+   <title>3.3) Ringfinger: v und .</title>
+   <newCharacters>v.</newCharacters>
+   <text>v vv vv v vv v vv v
+. .. .. . ... . .. .
+
+v. .v .v. .vv v.. .v.
+vv v vv vvv vv v
+
+. .. ... .. . ..
+. v v.v v. .v .v
+
+von viel vor
+voll vati vor
+
+viel vor voll
+vati von viel
+
+von. viel. vor.
+voll. vati. vor.
+
+viel. vor. voll.
+vati. von. viel.
+
+von viel vati voll
+vor viel von voll
+
+viel vati von vor</text>
+  </lesson>
+  <lesson>
+   <id>{5dae415d-82ea-4b57-986e-3c5ef76da3fd}</id>
+   <title>3.4) kleine Finger: f und k</title>
+   <newCharacters>fk</newCharacters>
+   <text>f ff ff f f fff f f fk
+
+k k kk kk kk k k k kk
+
+kf kf kf kf kf 
+
+ffk ffk fkk fkk fkk
+
+fk fk kf kf kf
+
+kff ffk
+
+fack fak kof kaf
+fakir koffer fink kaktus
+
+kof fack kaktus fak
+fink kaf fak koffer
+
+fack kof fakir kaktus
+kof fink fak koffer
+
+fak kaf fack kof
+kaktus fink fak koffer
+
+fak kof fack kaktus
+fink kaf fak kof</text>
+  </lesson>
+  <lesson>
+   <id>{25381c74-1c45-419d-830a-6bd2f8915eea}</id>
+   <title>3.5) Mehr Zeigefinger: ö und y</title>
+   <newCharacters>öy</newCharacters>
+   <text>ö ö ö ö ö ö ö ö ö ö ö 
+y y y y y y y y y y y
+
+ö ö ö ö ö ö ö ö ö ö ö 
+y y y y y y y y y y y
+
+yy yy yy öy öy yö 
+
+öö ööö öö öy yö yy
+
+yö yööy yy öö 
+
+öde möwe öl
+böse öhr öde
+
+yoy yes öde
+möwe böse öhr
+
+öde böse möwe
+öl öhr öde
+
+yoy öde yes
+möwe öde böse
+
+öl öde möwe
+böse öde öhr</text>
+  </lesson>
+  <lesson>
+   <id>{5be10a2e-7a09-4288-9487-00b83885591b}</id>
+   <title>3.6) Übung: Unterlinie</title>
+   <newCharacters></newCharacters>
+   <text>f v ü ä ö y z , . k
+f v ü ä ö y z , . k
+
+f v ü ä ö y z , . k
+f v ü ä ö y z , . k
+
+. , k z y ö ä ü v f 
+. , k z y ö ä ü v f 
+
+für fünf voll übel
+
+öde übel küh zurück
+
+fäz vögel zyka. küh
+
+fünf voll. übel für
+zyka öde, küh fünf
+
+vögel fäz, übel zurück
+für küh, voll übel
+
+fünf zyka, küh öde.
+vögel übel, zurück. küh
+
+fäz fünf übel voll.</text>
+  </lesson>
+  <lesson>
+   <id>{093035b3-c9e5-4fd0-b0f2-914b293e2c2e}</id>
+   <title>4.1) Shift links: NRSG</title>
+   <newCharacters>NRSG</newCharacters>
+   <text>N R S G 
+NN RR SS GG
+
+SS SSS S GG
+SGG GSR GSR NN 
+
+NR RS SG
+NG GS SG NN N
+
+Nagel Rose Gras
+Rang Nass Ross
+
+Soße Soße Soll
+Gans Groß Nagel
+Gans Groß Nagel
+
+Rose Gras Rang
+Nagel Rang S G
+Soße Soße Soll
+
+Ross Gans Nagel
+Gras Rose Rang
+Sollte Sole Solen
+
+Gans Groß Rose
+Nagel Rose Gans
+Soße Soße Soll
+
+Soße Soße Soll
+Rang Gras Nagel</text>
+  </lesson>
+  <lesson>
+   <id>{430f95b4-8503-4da3-8265-6565970c0218}</id>
+   <title>4.2) Shift rechts: CTIE</title>
+   <newCharacters>CTIE</newCharacters>
+   <text>C T I E
+T I E C
+
+I E C T
+E C T I
+
+Tier Tee Eis
+Tinte City Idee
+
+Titel Torte Eis
+Tee City Tinte
+
+Eis Tisch Titel
+Idee City Tier
+
+Tinte Eis Tisch
+Titel Elle Idee
+
+Torte Tier Eis
+Idee Citty Tisch
+
+Caffee Elle Innen
+Caffeesatz City 
+
+Eis Elle City Idee
+Idle Tier Caffee</text>
+  </lesson>
+  <lesson>
+   <id>{9bc3a8b8-db40-4edc-8b0f-2b4267415ff8}</id>
+   <title>4.3) Shift links: HLMW</title>
+   <newCharacters>HLMW</newCharacters>
+   <text>H H H H
+L L L L
+
+M M M M
+W W W W
+
+H L M W H L M W
+
+H L M W H L M W
+L M W H L M W H
+
+M W H L M W H L
+W H L M W H L M
+
+Helm Mahl Wall
+Walm Halm Woll
+
+Lehm Leihe
+LoL Halm Woll Mahl
+
+Mahl Helm Walm
+
+Lehm Leihe
+LoL Halm Woll Mahl Mahl Helm
+
+Helmw Halm Wall
+Mahl Helm Walm
+
+Lehm Leihe
+LoL Halm Woll Mahl
+
+Halm Woll Mahl
+Wall Helm Mahl</text>
+  </lesson>
+  <lesson>
+   <id>{229d8a97-65c3-4a0d-843e-214bf35c6c5f}</id>
+   <title>4.4) Shift rechts: JDUA</title>
+   <newCharacters>JDUA</newCharacters>
+   <text>J J J J
+D D D D
+
+U U U U
+A A A A
+
+J D U A J D U A
+J D U A J D U A
+
+Juda Duma Aber
+Jude Duje Aber
+
+Ulla Alle Ule All
+Ude Alles Jude
+
+Juda Duma Aber
+Jude Duje Aber
+
+Ulla Alle Ule All
+Ude Alles Jude </text>
+  </lesson>
+  <lesson>
+   <id>{23cf45af-1516-4c5a-98bb-8b139324f799}</id>
+   <title>4.5) Shift links: PBY</title>
+   <newCharacters>PBY</newCharacters>
+   <text>P P P P
+B B B B
+
+Y Y Y Y
+P B Y P B Y P B Y
+
+P P P P
+B B B B
+
+Y Y Y Y
+P B Y P B Y P B Y
+
+Park Ball Yoga
+Post Baum Yin
+
+Paul Boot Yacht
+Pflug Bier Yeti
+
+Ball Park Yin
+Yacht Paul Baum
+
+Post Yeti Pflug
+Yoga Boot Park
+
+Paul Yin Bier</text>
+  </lesson>
+  <lesson>
+   <id>{2c4475fc-378b-4b42-bf73-b50ed2bacdf7}</id>
+   <title>4.6) Shift rechts: FVÜÄ</title>
+   <newCharacters>FVÜÄ</newCharacters>
+   <text>F F F F
+V V V V
+
+Ü Ü Ü Ü
+Ä Ä Ä Ä
+
+F V Ü Ä F V Ü Ä
+
+F V Ü Ä F V Ü Ä
+V Ü Ä F V Ü Ä F
+
+Fisch Vogel Über Ähre
+Fund Vase Übel Ära
+
+Foto Volk Übung Äpfel
+Film Verein Ühr Äste
+
+Vogel Fisch Übel Ähre
+Übung Foto Ära Vogel
+
+Fisch Fund Ühr Äpfel
+Verein Übel Film Äste
+
+Über Ära Foto Vogel
+Ähre Übung Fisch Fund</text>
+  </lesson>
+  <lesson>
+   <id>{a68b272d-b60a-490e-8b50-42b7f26d2f1d}</id>
+   <title>4.7) Shift links: QZK</title>
+   <newCharacters>QZK</newCharacters>
+   <text>Q Q Q Q
+Z Z Z Z
+
+K K K K
+Q Z K Q Z K Q Z K
+
+Q Z K Q Z K Q Z K
+Z K Q Z K Q Z K Q
+
+K Q Z K Q Z K Q Z
+Q K Z Q K Z Q K Z
+
+Quiz Zahn Kind
+Qual Zug Kamm
+
+Zeit Kraft Quiz
+Kamm Kind Zeit
+
+Zug Quiz Kamm
+Kraft Zahn Qual
+
+Kind Quiz Zeit
+Kamm Qual Zahn
+
+Quiz Zeit Kraft
+Zahn Kind Kamm</text>
+  </lesson>
+  <lesson>
+   <id>{443ef05d-849a-4dc7-b008-3ed6f0e42fc7}</id>
+   <title>4.8) Shift rechts: XOÖ</title>
+   <newCharacters>XOÖ</newCharacters>
+   <text>X X X X
+O O O O
+
+Ö Ö Ö Ö
+X O Ö X O Ö X O Ö
+
+X O Ö X O Ö X O Ö
+O Ö X O Ö X O Ö X
+
+Ö X O Ö X O Ö X O
+X Ö O X Ö O X Ö O
+
+Xylophon Ort Öl
+
+Öse Oase Xylophon
+
+Ohr Öhr Ofen
+Öl Ort Öko
+
+Ort Öl Öse
+Oase Xylophon Ohr
+
+Öhr Öl Xylophon
+Öko Ort Öse
+
+Xylophon Öhr Oase
+Öse Öl Ort</text>
+  </lesson>
+  <lesson>
+   <id>{6ccd10c7-8463-4ec2-ad0b-e8974532b316}</id>
+   <title>4.9) Übung: Pangramm</title>
+   <newCharacters></newCharacters>
+   <text>Ein Pangramm oder holoalphabetischer Satz ist ein Satz, der
+alle Buchstaben des Alphabets enthält. 
+
+Jeder wackere Bayer vertilgt bequem zwo Pfund Kalbshaxen.
+ 
+Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.
+
+Stanleys Expeditionszug quer durch Afrika wird von
+jedermann bewundert.
+
+Jörg bäckt quasi zwei Haxenfüße vom Wildpony.
+
+Zwölf laxe Typen qualmen verdächtig süße Objekte.
+
+Üben von Xylophon und Querflöte ist ja zweckmäßig.
+
+Typograf Jakob zürnt schweißgequält vom öden Text.
+
+Typisch fiese Kater würden Vögel bloß zum Jux quälen.
+
+Falsches Üben von Xylophonmusik quält jeden größeren Zwerg.
+
+Polyfon zwitschernd aßen Mäxchens Vögel Rüben, Joghurt und
+Quark.
+
+Xaver schreibt für Wikipedia zum Spaß quälend lang über
+Yoga, Soja und Öko.
+</text>
+  </lesson>
+  <lesson>
+   <id>{2af3d120-27b5-4783-a19a-156c93e264fe}</id>
+   <title>5.1) Sonderzeichen: ', ", !, ?, (, ) - Layer 2</title>
+   <newCharacters>'"!?()</newCharacters>
+   <text>' ' ' '
+" " " "
+
+! ! ! !
+? ? ? ?
+
+( ( ( (
+) ) ) )
+
+' " ! ? ( )
+
+'Hallo' "Test"
+(a+b) (x+y)
+! ? ! ?
+"Zitat" 'Text'
+(x-y) (a*b)
+! "?" !
+'Beispiel' (a+b)
+</text>
+  </lesson>
+  <lesson>
+   <id>{a38cd765-8491-4c4b-9af4-e75a730708f3}</id>
+   <title>5.2) Die Ziffern</title>
+   <newCharacters>1234567890-°§ℓ»«$€„“”—</newCharacters>
+   <text>111 Kleiner Finger 111 j1 c1 f1 j1 c1 f1
+222 Kleiner Finger 222 j2 c2 f2 j2 c2 f2
+
+333 Ringfinger 333
+
+444 Mittelfinger 444
+
+555 Zeigefinger 555
+666 Zeigefinger 666
+
+777 Zeigefinger 777
+888 Zeigefinger 888
+
+999 Mittelfinger 999
+
+000 Ringfinger 000
+000 Ringfinger 000
+
+--- Kleiner Finger ---
+--- Kleiner Finger ---
+
+Mit der Hochstelltaste ändert sich bereits die gewohnte
+Belegung. Probiere es aus.
+
+1! 2" 3§ 4$ 5% 6&amp; 7/ 8( 9) 0= ß? -_
+1! 2" 3§ 4$ 5% 6&amp; 7/ 8( 9) 0= ß? -_
+
+nocheinmal 
+1! 2" 3§ 4$ 5% 6&amp; 7/ 8( 9) 0= ß? -_
+</text>
+  </lesson>
+  <lesson>
+   <id>{cef827e2-046c-41a3-9bf5-c9271057458e}</id>
+   <title>5.3) Weitere Sonderzeichen</title>
+   <newCharacters>&lt;>=&amp;@:+%;^[]_…*{}/\`~|#</newCharacters>
+   <text>Mittels der M3-Taste, die über der Hochstelltaste (Shift), 
+können verschiedene Sonderzeichen erzeugt werden.
+p ! ! p!p !!! p ! p!p !!! h &lt; h&lt;h &lt;&lt;&lt; h &lt; h&lt;h &lt;&lt;&lt;
+l > l>l >>> l > l>l >>> m = m=m === m = m=m ===
+w &amp; &amp;w&amp; &amp;&amp;&amp; w &amp; &amp;w&amp; &amp;&amp;&amp; b ? b?b ??? b ? b?b ???
+n ( n(n ((( n ( n(n ((( r ) r)r ))) r ) r)r )))
+s - s-s --- s - s-s --- g : g:g ::: g : g:g :::
+q @ q@q @@@ q @ q@q @@@ y + +y+ +++ y + +y+ +++
+z % %z% %%% z % %z% %%% , " "," """ , " "," """
+. ' .'. ''' . ' .'. ''' k ; ;k; ;;; k ; ;k; ;;;
+Mittels der M3-Taste, die rechts vom q, können verschiedene
+Sonderzeichen erzeugt werden.
+x ^ ^x^ ^^^ x ^ ^x^ ^^^ a ] ]a] ]]] a ] ]a] ]]]
+u [ [u[ [[[ u [ [u[ [[[ d _ _d_ ___ d _ _d_ ___
+j … …j… ……… j … …j… ……… o * *o* *** o * *o* ***
+e } }e} }}} e } }e} }}} i { {i{ {{{ i { {i{ {{{
+t / /t/ /// t / /t/ /// c \ \c\ \\\ c \ \c\ \\\
+ö ` `ö` ``` ö ` `ö` ``` ä ~ ~ä~ ~~~ ä ~ ~ä~ ~~~
+ü | |ü| ||| ü | |ü| ||| v $ $v$ $$$ v $ $v$ $$$
+f # #f# ### f # #f# ###</text>
+  </lesson>
+  <lesson>
+   <id>{4a128bcc-1cd6-4296-9f08-a3fd2667b0f7}</id>
+   <title>5.4) Ebene 4 - Steuerzeichen und Zahlenblock</title>
+   <newCharacters></newCharacters>
+   <text>Auf Ebene 4 liegen die Steuerzeichen. Auch die Ziffern 
+können mittels der M4-Taste dargestellt werden. Dazu die
+Taste links vom f und zusätzlich die
+gewünschte andere Taste drücken.
+z z1z 111 1z1 111 z z1z 111 1z1 111
+, ,2, 222 2,2 222 , ,2, 222 2,2 222
+. .3. 333 3.3 333 . .3. 333 3.3 333
+n n4n 444 4n4 444 n n4n 444 4n4 444
+r r5r 555 5r5 555 r r5r 555 5r5 555
+s s6s 666 6s6 666 s s6s 666 6s6 666
+h h7h 777 7h7 777 h h7h 777 7h7 777
+l l8l 888 8l8 888 l l8l 888 8l8 888
+m m9m 999 9m9 999 m m9m 999 9m9 999
+das Leerzeichen wird zur 0
+000 0 000 0
+Auch die Rechenoperatoren sind da. Einige in der 
+Ziffernreihe:
+9 9/9 /// /9/
+0 0*0 *** *0*
+---
+und andere darunter:
+w w+w +++ +w+
+g g,g ,,, ,g,
+
+Eine 2. M4-Taste liegt auf dem AltGr. Diese ist besonders
+nützlich, um die links liegenden Steuerzeichen zu nutzen.
+- Die Pfeiltasten liegen auf uite
+- Backspace und Entfernen liegen auf d und a
+- Bild auf und -ab liegen auf j und x
+- Escape liegt auf f
+- Tab liegt auf v
+- Einfügen liegt auf ü
+- Enter liegt auf ä</text>
+  </lesson>
+  <lesson>
+   <id>{8517c2fb-0a0f-4050-a9e6-ef7afde965c9}</id>
+   <title>Typografie und neue Zeichen</title>
+   <newCharacters>‚‘’–ẞſ</newCharacters>
+   <text>Man beachte die Setzung von Leerzeichen beim Schrägstrich/
+Slash, bei Klammern (wie hier) und bei anderen Satzzeichen.
+
+Neo bietet die echten deutschen Anführungszeichen auf der
+zweiten Ebene der Zahlen 8 und 9. Zitat: „In dubio pro Neo.“
+
+Auf der dritten Ebene sind die ‚einfachen‘
+Anführungszeichen, auf der 9 und 0 die “englischen” und die
+entsprechenden ‘einfachen englischen’.
+
+Auf der dritten Ebene der 0 ist der echte Apostroph, den man
+für Felix’ Katze braucht. Er ist aber sonst ’n seltenes
+Zeichen, ohne geht’s meistens auch.
+
+Für Programmierung verwendet man immer die "normalen" oder
+die 'einfachen' Ersatzzeichen.
+
+Auf dem X gibt es die Auslassungspunkte … Davor und danach
+muss ein Leerzeichen stehen. Außer, wenn man mitten im Wort
+abbric…
+
+Auf dem T gibt’s den Binde-Strich. Aber besser Bindestrich.
+Beim Komma den Gedankenstrich – man beachte den Unterschied
+in der Breite.
+
+Dieser ist auch ein Gegen-Strich – etwa bei „Schalke –
+Frankfurt“ (mit Leerzeichen) – sowie ein Bis-Strich – wie
+bei „14–16 Uhr“ (ohne Leerzeichen).
+
+Da „und“ ein eigenständiges Wort ist, setzt man bei „Müller
+&amp; Söhne“ Leerzeichen. Dies gilt auch z. B. bei „i. d. R.“
+u. a.
+
+Neo bietet das große Eszett: ẞ.
+
+Und schließlich iſt es mit Neo möglich, das lange s zu
+tippen.</text>
+  </lesson>
+  <lesson>
+   <id>{01b0e94c-917f-4b66-b7f1-7a53d9a2619c}</id>
+   <title>Deutsche Wörter – 1000 häufigst benutzte Wörter</title>
+   <newCharacters></newCharacters>
+   <text>der die und in den von zu das mit sich des auf für ist im
+dem nicht ein eine als auch es an werden aus er hat dass sie
+
+nach wird bei einer um am sind noch wie einem über einen so
+zum war haben nur oder aber vor zur bis mehr durch man sein
+
+wurde sei in Prozent hatte kann gegen vom können schon wenn
+habe seine Euro ihre dann unter wir soll ich eines es Jahr
+
+zwei Jahren diese wieder keine Uhr seiner worden und will
+zwischen immer Millionen ein was sagte er gibt alle diesem
+
+seit muss wurden beim doch jetzt waren drei Jahre mit neue
+neuen damit bereits da auch ihr seinen müssen ab ihrer nach
+
+ohne sondern selbst ersten nun etwa bei heute ihren weil ihm
+seien Menschen Deutschland anderen werde ich sagt wir eine
+
+rund für aber ihn Ende jedoch Zeit sollen ins wenn so seinem
+uns Stadt geht doch sehr hier ganz erst wollen Berlin vor
+
+allem sowie hatten kein deutschen machen lassen als
+Unternehmen andere ob dieses steht dabei wegen weiter denn
+
+beiden einmal etwas wie nichts allerdings vier gut viele wo
+viel dort alles wäre kommt vergangenen denen fast fünf
+
+könnte nicht nur hätten Frau am dafür kommen diesen letzten
+zwar diese großen dazu von Mann da sollte würde also bisher
+
+Leben Milliarden Welt Regierung konnte ihrem Frauen während
+Land zehn würden stehen ja USA heißt dies zurück Kinder
+
+dessen ihnen deren sogar Frage gewesen erste gab liegt gar
+davon gestern geben Teil Polizei dass hätte eigenen kaum
+
+sieht große denn weitere was sehen macht Angaben weniger
+gerade lässt Geld München deutsche allen darauf wohl später
+
+könne deshalb aller kam Arbeit mich gegenüber nächsten
+bleibt wenig lange gemacht wer dies Fall mir gehen Berliner
+
+mal Weg wollte sechs keinen Woche dagegen alten möglich gilt
+erklärte müsse dabei könnten Geschichte zusammen finden Tag
+
+Art erhalten man Dollar Wochen jeder nie bleiben besonders
+Deutschen den zu zunächst derzeit allein deutlich
+
+Entwicklung weiß einige sollten Präsident geworden statt
+Bonn Platz inzwischen nur Freitag um pro seines damit Montag
+
+Europa schließlich Sonntag einfach gehört eher oft Zahl
+neben hält weit Partei meisten Thema zeigt Politik aus
+
+zweiten Januar insgesamt je musste Anfang hinter ebenfalls
+ging Mitarbeiter darüber vielen Ziel darf Seite fest hin
+
+erklärt Namen Haus an Frankfurt Gesellschaft Mittwoch damals
+Dienstag Hilfe Mai Markt seit Tage Donnerstag halten gleich
+
+nehmen solche Entscheidung besser alte Leute Ergebnis
+Samstag sagen System März tun Monaten kleinen lang nicht
+
+knapp bringen wissen Kosten Erfolg bekannt findet daran
+künftig acht schnell Grund scheint Zukunft Stuttgart bin
+
+liegen politischen Gruppe Rolle stellt Juni sieben September
+nämlich Männer Oktober überhaupt eigene dann gegeben
+
+außerdem Stunden eigentlich Meter ließ Probleme vielleicht
+ebenso Bereich zum Beispiel Höhe Familie während Bild
+
+Ländern Informationen Frankreich Tagen schwer zuvor vor
+genau April stellen neu erwartet Hamburg sicher führen Mal
+
+über mehrere Wirtschaft Programm offenbar hier weiteren
+natürlich konnten stark Dezember Juli ganze kommenden Kunden
+
+bekommen eben kleine trotz wirklich Lage Länder leicht
+gekommen Spiel laut November kurz politische führt innerhalb
+
+unsere meint immer wieder Form anders ihres völlig
+beispielsweise gute bislang August Hand jede GmbH Film
+
+Minuten erreicht beide Musik Kritik Mitte Verfügung Buch
+dürfen unter jeweils einigen zum Umsatz spielen Daten welche
+
+müssten hieß paar nachdem Kunst gebracht Problem noch jeden
+Sprecher recht erneut längst europäischen sein Eltern Beginn
+
+besteht mindestens machte jetzt bietet außerdem Bürger
+Trainer bald Deutsche schon Fragen klar durch gehören dort
+
+erstmals Februar zeigen Titel Stück größten setzt Wert Staat
+möchte daher wolle Bundesregierung lediglich Nacht Krieg
+
+Opfer Tod nimmt Firma zuletzt Werk hohen leben unter anderem
+dieser Kirche weiterhin gestellt Mitglieder Rahmen zweite
+
+Paris Situation gefunden Wochenende internationalen Wasser
+Recht sonst Möglichkeit versucht blieb junge Mehrheit Straße
+
+Sache arbeiten Seiten gebe stand Hälfte Monate Mutter
+berichtet letzte Gericht wollten zwölf zumindest Wahl genug
+
+Weise Vater Bericht amerikanischen hoch beginnt Wort obwohl
+Kopf spielt Interesse Westen verloren Preis erst jedem
+
+erreichen setzen spricht früher teilte Landes zudem
+einzelnen bereit Blick Druck Bayern Kilometer gemeinsam
+
+Bedeutung Chance Politiker dazu besten Ansicht endlich
+Stelle direkt beim Bevölkerung viele solchen alle solle
+
+jungen Einsatz richtig größte sofort neuer ehemaligen
+unserer dürfte schaffen Augen Russland Internet allerdings
+
+Raum Mannschaft neun kamen Ausstellung Zeiten einzige meine
+nun Verfahren Angebot Richtung Projekt niemand Kampf weder
+
+tatsächlich Personen heute geführt Gespräch Kreis Hamburger
+Schule guten Hauptstadt durchaus Zusammenarbeit darin Amt
+
+Schritt meist groß zufolge Sprache Region Punkte Vergleich
+genommen gleichen du ob Soldaten Universität verschiedenen
+
+Kollegen neues Bürgermeister Angst Unterstützung stellte
+Sommer danach anderer gesagt Sicherheit Macht Bau handelt
+
+Folge Bilder lag Osten Handel sprach Aufgabe Chef frei
+dennoch hohe Firmen Koalition Mädchen zur entwickelt fand
+
+Diskussion bringt deshalb Hause Gefahr per zugleich früheren
+dadurch ganzen Abende erzählt Streit Vergangenheit Parteien
+
+Verhandlungen jedenfalls gesehen französischen Trotz
+darunter Spieler forderte Meinung wenigen Publikum sowohl
+
+meinte mag Auto Lösung Boden hinaus war verletzt weltweit
+Sohn bevor mussten keiner Produktion Ort braucht
+
+Zusammenhang Kind Verein sprechen gleichzeitig London
+sogenannten Richter geplant Italien Mittel her freilich
+
+Mensch großer wenige öffentlichen dritten nahm
+Bundesrepublik Arbeitsplätze bedeutet Feld Bank oben Aktien
+
+Präsident gesetzt Ausland Ministerpräsident Vertreter jedes
+ziehen Parlament berichtete dieses China aufgrund Stellen
+
+warum Kindern heraus heutigen Anteil Herr Öffentlichkeit
+Abend selbst Liebe neben rechnen fällt New York Industrie
+
+wären Vorjahr Sicht Idee Banken verlassen Leiter Bühne
+insbesondere offen stets Theater ändern entschieden Staaten
+
+Experten Gesetz Geschäft Tochter angesichts gelten mehr
+erwarten läuft fordert Japan Sieg ist Stimmen wählen
+
+russischen gewinnen bieten Nähe jährlich Bremen Schüler Rede
+Funktion Zuschauer hingegen anderes Führung Besucher Drittel
+
+Moskau immerhin Vorsitzende Urteil schließlich Kultur
+betonte mittlerweile Saison Konzept suchen Zahlen Roman
+
+Gewalt Position alt Luft Studenten Köln gesamte indem Stunde
+ehemalige Auftrag entscheiden genannt tragen Börse langen
+
+häufig Chancen übernehmen stärker ohnehin zeigte geplanten
+Reihe darum verhindern begann Medien verkauft Minister
+
+wichtig amerikanische sah gesamten einst verwendet vorbei
+Behörden helfen Folgen bezeichnet</text>
+  </lesson>
+  <lesson>
+   <id>{af712f96-95d7-47fd-ae06-eaf0b25a557c}</id>
+   <title>English test—1000 frequently used words</title>
+   <newCharacters></newCharacters>
+   <text>sister gun total company oxygen similar deal radio plural
+death determine various score evening is not then action
+agreed forward nor capital opposite stretched rope factories
+wrong experience cotton settled chart rose apple yellow
+prepared allow details pretty fear entire southern solution
+workers corn truck fresh Washington substances fair shop
+Greek smell printed suffix women tools would not especially
+bought conditions ahead shoes led cows chance actually march
+track born nose northern arrived level afraid create located
+triangle dead British sir molecules sugar difficult seat
+France adjective match division repeated fig win effect
+column office does not underline the or will number of one
+up no and had other way a by about could to word out people
+in but many my than you what them first that all these water
+it were so been he we some call was when her who for your on
+can make its are said like now as there him find with use
+into long his an time down they each has look did at she two
+get be do more come his how write made have their go may
+from if see part set over say try put new great kind end
+sound where hand does western huge steel view church day I
+which take help picture another only through again well
+little much change large work before off must know line play
+big place right spell even year too air such live mean away
+because man three America me old animal turn back any house
+here give same point why most tell page ask move think small
+world very boy letter went after follow mother men thing
+came answer read our want found need would oil just show
+study land name also still different good around learn home
+sentence form should us high saw important miss every left
+until idea near children enough add few side eat food while
+feet face between along car watch own might mile far below
+close night Indian country something walk really plant seem
+white almost last next sea let school hard began above
+father open grow girl keep example took sometimes tree begin
+river mountain never life four cut start always carry young
+city those state talk earth both once soon eye paper book
+list light together hear song fact base thought got stop
+being head group without leave under often second family
+story run later done decided plane filled English contain
+system heat road course behind full halt surface ran hot ten
+produce round check fly building boat object gave ocean game
+am box class force rule equation finally note brought among
+wait nothing understand noun street stood government built
+yet include correct rest warm power oh carefully common
+cannot quickly scientists bring able person inside explain
+six became wheels dry size shown stay though dark minutes
+green language ball strong known shape material verb island
+deep special stars week thousands heavy front less yes fine
+feel machine clear pair picked beside legs simple gone
+matter sat cells sky square main paint glass syllables
+winter mind million perhaps wide love west bill written
+cause lay felt length rain weather suddenly reason exercise
+root test kept eggs instruments direction interest train
+meet center arms circle inches ago blue third farmers
+brother wish months ready race drop paragraph anything
+present developed raised divided beautiful window represent
+general store difference soft energy job members happy
+everything distance whether subject edge heart clothes
+Europe past sit flowers moon sign sum shall region record
+summer teacher return finished wall held believe discovered
+forest describe dance wild probably drive already hair
+rolled cross instead age bear speak phrase amount wonder
+solve soil scale smiled appear bed pounds angle metal copy
+although fraction son free per Africa either hope broken
+killed dictionary sail ice spring moment melody sleep case
+tiny bottom village laughed possible trip factors nation
+gold hole result quite milk poor jumped type quiet let us
+snow themselves natural fight ride temperature lot surprise
+care bright stone French floor lead act died fingers tall
+hill everyone build beat pushed method middle exactly baby
+section speed remain buy lake count dress century consonant
+cat iron outside within someone could president caught row
+yourself brown fell least control trouble team catch
+practice cool God climbed report cloud captain wrote
+straight lost direct shouted rise sent ring continued
+statement symbols serve itself stick wear child else party
+bad desert plains seeds save increase gas suppose experiment
+history England woman engine cost burning coast alone maybe
+design bank Germany drawing business joined period east
+separate foot wire pay break law choose single uncle ears
+clean touch hunting grass visit information flow you are bit
+express lady grew whose mouth students skin received yard
+human valley garden equal art cents please guess thick major
+supply silent blood observe corner trade lie tube electric
+rather spot necessary insects compare bell weight crops
+crowd fun meat tone poem loud lifted hit enjoy consider
+process sand elements suggested army doctor indicate thin
+hat provide except position property thus expect entered
+flat fruit swim cook seven tied terms bones interesting rich
+current tail sense dollars park particular board string send
+sell modern blow sight shoulder compound famous chief
+industry mine value Japanese wash was not wings stream block
+fit movement planets spread addition pole rhythm cattle
+belong exciting eight wife safe branches science sharp
+soldiers heard reached map upon decimal feeling key strange
+body order listen farm music red wind pulled color door rock
+draw stand sure space voice sun become covered seen question
+top fast cold fish ship several cried area across hold plan
+mark today himself notice dog during toward south horse
+short five sing birds better step war problem best morning
+ground complete however passed fall room low vowel king knew
+hours true town since black hundred will ever products
+against unit piece happened pattern figure told whole
+numeral certain usually measure table field did not remember
+north travel friends early slowly wood easy waves money fire</text>
+  </lesson>
+  <lesson>
+   <id>{16d69fec-37e3-4dc9-9434-11614a783f14}</id>
+   <title>Ein programmier Beispiel</title>
+   <newCharacters></newCharacters>
+   <text># Bone Layout Übung: linke und rechte Hand Shift + Sonderzeichen
+def summe(a, b):
+    """Berechnet die Summe von a und b"""
+    return a + b
+
+# Test der Funktion
+x = 5
+y = 7
+ergebnis = summe(x, y)
+print("Summe:", ergebnis)  # Ausgabe: Summe: 12
+</text>
+  </lesson>
+ </lessons>
+</course>
