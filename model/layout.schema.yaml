@@ -1,0 +1,332 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://neo-layout.org/schema/layout.schema.yaml
+title: Neo2FamilyLayout
+description: |
+  A single Neo-family keyboard layout (e.g. Neo2, Bone, Neo-QWERTZ).
+
+  The layout is specified by mapping each physical keys to its resulting effect
+  for each of the six independent layers (`level1` … `level6`).
+
+  In the Neo family, the layers are activated as follows::
+
+  * `level1` – no modifier (base layer, lowercase letters)
+  * `level2` – Shift (Umschalt)
+  * `level3` – Mod3 (left Mod3 at the CapsLock position, right Mod3 at the
+    German `#` / `Backslash` position)
+  * `level4` – Mod4 (left Mod4 at the `IntlBackslash` / `<>` position, right
+    Mod4 at the AltGr position)
+  * `level5` – Mod3 + Shift
+  * `level6` – Mod3 + Mod4
+
+  Lock behaviour:
+
+  * CapsLock locks level 2 for letters (UmschaltL + UmschaltR)
+  * Mod4L + Mod4R (or Shift + Mod3 + Tab) locks level 4
+
+type: object
+required: [name, description, levels, $schema]
+additionalProperties: false
+properties:
+  # noinspection YAMLSchemaValidation
+  $schema:
+    type: string
+  name:
+    type: string
+    pattern: "^[a-z0-9-]+$"
+    description: Machine-readable layout identifier (e.g. "neo20", "bone", "neoqwertz").
+  # noinspection YAMLSchemaValidation
+  description:
+    type: string
+    minLength: 1
+    description: Human-readable description of the layout.
+  levels:
+    type: object
+    required: [level1, level2, level3, level4, level5, level6]
+    additionalProperties: false
+    properties:
+      level1: { $ref: "#/$defs/level" }
+      level2: { $ref: "#/$defs/level" }
+      level3: { $ref: "#/$defs/level" }
+      level4: { $ref: "#/$defs/level" }
+      level5: { $ref: "#/$defs/level" }
+      level6: { $ref: "#/$defs/level" }
+
+$defs:
+  level:
+    type: object
+    description: |
+      One layer of the layout. Keys are the physical key codes available for
+      assignment in a Neo-family layout; values are the produced key values.
+      Modifier keys reserved for layer switching are not present.
+
+      A level must map each of the 65 assignable codes.
+    propertyNames:
+      $ref: "#/$defs/keyCode"
+    patternProperties:
+      "^.*$":
+        $ref: "#/$defs/keyEffect"
+    minProperties: 65
+    maxProperties: 65
+
+  keyCode:
+    title: KeyCode
+    description: |
+      Physical key codes that are available for character assignment in a
+      Neo-family keyboard layout.
+
+      The values are the W3C UI Events `KeyboardEvent.code` values defined in
+      https://www.w3.org/TR/uievents-code/.
+
+      Modifier keys that are reserved for layer switching are intentionally
+      absent from this list (for example the German `#` key, encoded as
+      `Backslash`, is used as Mod3 on the right side of the home row).
+    oneOf:
+      # Row E (number row)
+      - const: Backquote
+        description: |
+          Top-left key of the alphanumeric section. Labelled `^°` on a German
+          QWERTZ keyboard.
+      - const: Digit1
+        description: |
+          The `1` key. Labelled `1!` on QWERTY, `1!` on German QWERTZ.
+      - const: Digit2
+      - const: Digit3
+      - const: Digit4
+      - const: Digit5
+      - const: Digit6
+      - const: Digit7
+      - const: Digit8
+      - const: Digit9
+      - const: Digit0
+      - const: Minus
+        description: |
+          Labelled `-_` on QWERTY, `ß?` on German QWERTZ.
+      - const: Equal
+        description: |
+          Labelled `=+` on QWERTY, `´` on German QWERTZ.
+
+      # Row D (top letter row)
+      - const: Tab
+        description: |
+          The Tab key. Its function varies across levels in Neo-family layouts
+          (e.g. Tab, Backtab, Compose).
+      - const: KeyQ
+      - const: KeyW
+      - const: KeyE
+      - const: KeyR
+      - const: KeyT
+      - const: KeyY
+        description: |
+          Labelled `y` on QWERTY, `z` on German QWERTZ.
+      - const: KeyU
+      - const: KeyI
+      - const: KeyO
+      - const: KeyP
+      - const: BracketLeft
+        description: |
+          Labelled `[{` on QWERTY, `ü` on German QWERTZ.
+      - const: BracketRight
+        description: |
+          Labelled `]}` on QWERTY, `+*` on German QWERTZ.
+
+      # Row C (home row)
+      - const: KeyA
+      - const: KeyS
+      - const: KeyD
+      - const: KeyF
+      - const: KeyG
+      - const: KeyH
+      - const: KeyJ
+      - const: KeyK
+      - const: KeyL
+      - const: Semicolon
+        description: |
+          Labelled `;:` on QWERTY, `ö` on German QWERTZ.
+      - const: Quote
+        description: |
+          Labelled `"` on QWERTY, `ä` on German QWERTZ.
+
+      # Row B (bottom letter row)
+      - const: KeyZ
+        description: |
+          Labelled `z` on QWERTY, `y` on German QWERTZ.
+      - const: KeyX
+      - const: KeyC
+      - const: KeyV
+      - const: KeyB
+      - const: KeyN
+      - const: KeyM
+      - const: Comma
+      - const: Period
+      - const: Slash
+        description: |
+          Labelled `/?` on QWERTY, `#-` on German QWERTZ.
+
+      # Row A (space row)
+      - const: Space
+        description: |
+          The spacebar. Its function varies across levels in Neo-family layouts
+          (Space, 0, No-Break Space, Narrow No-Break Space).
+
+      # Numpad
+      - const: NumLock
+        description: |
+          Top-left key of the numeric keypad. In Neo-family layouts this key emits
+          Tab/Backtab and mathematical symbols rather than acting as a NumLock
+          toggle.
+      - const: NumpadDivide
+      - const: NumpadMultiply
+      - const: NumpadSubtract
+      - const: Numpad7
+      - const: Numpad8
+      - const: Numpad9
+      - const: NumpadAdd
+      - const: Numpad4
+      - const: Numpad5
+      - const: Numpad6
+      - const: Numpad1
+      - const: Numpad2
+      - const: Numpad3
+      - const: NumpadEnter
+      - const: Numpad0
+      - const: NumpadDecimal
+
+  keyEffect:
+    title: KeyEffect
+    description: |
+      The effect of pressing a physical key when a given level is active. 
+      Can be specified using different representations.
+
+    oneOf:
+      - type: "null"
+        title: NoEffect
+        description: No effect.
+      - type: object
+        title: UnicodeCharacterByNameEffect
+        description: |
+          Outputs a unicode code point identified by its official Unicode name. Use this form for whitespace characters. Do not use it for
+          combining characters; use `{ dead: "..." }` for dead keys instead.
+        required: [char]
+        additionalProperties: false
+        properties:
+          char:
+            type: string
+            minLength: 1
+            pattern: "^[A-Z][A-Z0-9 -]*[A-Z0-9]$"
+            not:
+              pattern: "^COMBINING "
+            description: |
+              A character specified by its official Unicode name, e.g.
+              "NO-BREAK SPACE".
+      - type: object
+        title: EventEffect
+        description: |
+          A [W3C UI Events `KeyboardEvent.key` name](https://www.w3.org/TR/uievents-key/)
+          for a named key such as `Enter` or `ArrowLeft`. This representation is
+          intended for key presses that don’t produce text output but actions. To
+          specify a visible character, use the plain-string shorthand; whitespace
+          characters must use the `{ char: "..." }` representation.
+          There are some actions specific to the Neo-family, which are not covered
+          by the W3C UI Events. These have dedicated enum values starting with `Neo`.
+        required: [key]
+        additionalProperties: false
+        properties:
+          key:
+            oneOf:
+              - type: string
+                minLength: 1
+                not:
+                  pattern: "^Neo"
+                description: |
+                  W3C UI Events `KeyboardEvent.key` name, such as `Enter` or
+                  `ArrowLeft`.
+              - type: string
+                enum: [NeoBacktab]
+                description: Neo-family backwards-tab action (Shift+Tab).
+              - type: string
+                enum: [NeoNumpad0]
+                description: Keypad digit 0 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad1]
+                description: Keypad digit 1 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad2]
+                description: Keypad digit 2 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad3]
+                description: Keypad digit 3 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad4]
+                description: Keypad digit 4 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad5]
+                description: Keypad digit 5 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad6]
+                description: Keypad digit 6 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad7]
+                description: Keypad digit 7 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad8]
+                description: Keypad digit 8 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpad9]
+                description: Keypad digit 9 produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpadAdd]
+                description: Keypad operator add produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpadSubtract]
+                description: Keypad operator subtract produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpadMultiply]
+                description: Keypad operator multiply produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpadDivide]
+                description: Keypad operator divide produced by a main-keyboard key in Neo level 4.
+              - type: string
+                enum: [NeoNumpadDecimal]
+                description: Keypad decimal separator produced by a main-keyboard key in Neo level 4.
+      - type: object
+        title: DeadKeyEffect
+        description: |
+          Starts a dead key sequence. The effect of the dead key on the next pressed key can be defined in one of two ways:
+
+            1. By using the official Unicode name of a combining character.
+            2. By using one of the documented `NEO DEAD …` constants for special cases.
+        required: [dead]
+        additionalProperties: false
+        properties:
+          dead:
+            oneOf:
+              - type: string
+                pattern: "^COMBINING [A-Z][A-Z0-9 -]*[A-Z0-9]$"
+                description: |
+                  Official Unicode name of a combining character.
+              - enum: [NEO DEAD ROTATE]
+                description: ↻ – rotation dead key.
+              - enum: [NEO DEAD HOOK]
+                description: ˞ – hook / horn dead key.
+              - enum: [NEO DEAD DOT BELOW]
+                description: . – dot below dead key.
+              - enum: [NEO DEAD CEDILLA]
+                description: ¸ / ˛ – cedilla / ogonek dead key.
+              - enum: [NEO DEAD RING]
+                description: ˚ / ° – ring above dead key.
+              - enum: [NEO DEAD MACRON]
+                description: ¯ – macron dead key.
+              - enum: [NEO DEAD TILDE]
+                description: ˜ – tilde dead key.
+              - enum: [NEO DEAD STROKE]
+                description: / – stroke / solidus dead key.
+              - enum: [NEO DEAD SPIRITUS LENIS]
+                description: ᾿ – spiritus lenis / hook above dead key.
+      - type: string
+        title: UnicodeCharacterEffect
+        description: |
+          A single visible Unicode character. Use `{ char: "..." }` for
+          whitespace characters.
+        minLength: 1
+        maxLength: 1
+        pattern: '^\S$'

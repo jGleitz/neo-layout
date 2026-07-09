@@ -1,0 +1,27 @@
+{
+  "name": "neo-layout-model",
+  "version": "0.1.0",
+  "description": "Neo2 keyboard layout model and A-REFERENZ-A converter",
+  "type": "module",
+  "scripts": {
+    "schema:types": "json2ts --unreachableDefinitions --input layout.schema.yaml --output src/generated/layout.d.ts",
+    "build": "tsc",
+    "format": "prettier --write .",
+    "convert": "pnpm schema:types && pnpm build && tsx src/convert.ts"
+  },
+  "devDependencies": {
+    "@tsconfig/node26": "^26.0.0",
+    "@types/node": "^26.1.1",
+    "@types/unicode-name": "^1.1.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "json-schema-to-typescript": "^15.0.4",
+    "prettier": "^3.9.5",
+    "tsx": "^4.23.0",
+    "typescript": "^7.0.2",
+    "yaml": "^2.9.0"
+  },
+  "dependencies": {
+    "unicode-name": "^1.1.0"
+  }
+}
