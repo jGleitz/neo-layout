@@ -15,7 +15,11 @@ const MODELS_PATH = path.join(
   "model",
   "generated",
 );
-const BUNDLE_PATH = path.join(import.meta.dirname, "..", "neo-layouts_v3.bundle");
+const BUNDLE_PATH = path.join(
+  import.meta.dirname,
+  "..",
+  "neo-layouts_v3.bundle",
+);
 
 async function generateBundleStructure() {
   await fs.mkdir(path.join(BUNDLE_PATH, "Contents", "Resources"), {
@@ -137,7 +141,7 @@ export function generateKeylayout(
 ): KeyboardLayoutBuilder {
   // Placeholder structure that satisfies the DTD. The real Neo → keylayout
   // mapping still needs to be implemented.
-  return new KeyboardLayoutBuilder(layout.name).addKeyMap(
+  return new KeyboardLayoutBuilder(layout.id, layout.displayName).addKeyMap(
     ...generateLevel1(layout),
   );
 }
@@ -196,14 +200,15 @@ async function generateAll() {
       errors.push(...validationResult.map((error) => `${filePath}: ${error}`));
       continue;
     }
-    const layout = validationResult;
+    // TODO avoid cast
+    const layout = validationResult as Neo2FamilyLayout;
 
     const keylayout = generateKeylayout(layout);
     const outputPath = path.join(
       BUNDLE_PATH,
       "Contents",
       "Resources",
-      `${layout.name}.keylayout`,
+      `${layout.displayName}.keylayout`,
     );
     await fs.writeFile(outputPath, keylayout.build(), "utf-8");
 

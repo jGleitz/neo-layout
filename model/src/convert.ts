@@ -9,18 +9,29 @@ import type { Neo2FamilyLayout } from "./generated/layout.js";
 const REFERENCE_DIR = "../A-REFERENZ-A";
 const OUTPUT_DIR = "generated";
 
-const SOURCES: ReadonlyArray<{
-  file: string;
-  name: string;
-  description: string;
-}> = [
-  { file: "neo20.txt", name: "Neo 2", description: "Neo2 standard layout" },
+const SOURCES: ReadonlyArray<
+  {
+    file: string;
+  } & Pick<Neo2FamilyLayout, "id" | "displayName" | "description">
+> = [
+  {
+    file: "neo20.txt",
+    id: "org.neo-layout.neo-layouts.de.neo2",
+    displayName: "Deutsch (Neo 2 v3)",
+    description: "Neo2 standard layout",
+  },
   {
     file: "neoqwertz.txt",
-    name: "Neo-QWERTZ",
+    id: "org.neo-layout.neo-layouts.de.neoqwertz",
+    displayName: "Deutsch (Neo-QWERTZ v3)",
     description: "Neo-QWERTZ layout",
   },
-  { file: "bone.txt", name: "Bone", description: "Bone layout" },
+  {
+    file: "bone.txt",
+    id: "org.neo-layout.neo-layouts.de.bone",
+    displayName: "Deutsch (Bone v3)",
+    description: "Bone layout",
+  },
 ];
 
 async function main(): Promise<void> {
@@ -33,12 +44,15 @@ async function main(): Promise<void> {
 
     const layout = {
       $schema: path.relative(OUTPUT_DIR, schemaPath),
-      ...parseNeoReference(sourceText, source.name, source.description),
+      id: source.id,
+      displayName: source.displayName,
+      description: source.description,
+      levels: parseNeoReference(sourceText),
     };
 
-    allValid &&= validateLayoutAndOutputErrors(layout, source.name);
+    allValid &&= validateLayoutAndOutputErrors(layout, source.displayName);
 
-    const outputPath = path.join(OUTPUT_DIR, `${source.name}.yaml`);
+    const outputPath = path.join(OUTPUT_DIR, `${source.displayName}.yaml`);
     const yamlText = YAML.stringify(layout, {
       defaultKeyType: "PLAIN",
       aliasDuplicateObjects: false,

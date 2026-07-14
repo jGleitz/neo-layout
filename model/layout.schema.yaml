@@ -24,16 +24,19 @@ description: |
   * Mod4L + Mod4R (or Shift + Mod3 + Tab) locks level 4
 
 type: object
-required: [name, description, levels, $schema]
+required: [id, displayName, description, levels, $schema]
 additionalProperties: false
 properties:
   # noinspection YAMLSchemaValidation
   $schema:
     type: string
-  name:
+  id:
     type: string
-    pattern: "^[a-zA-Z0-9]([a-zA-Z0-9- _]+[a-zA-Z0-9])?$"
-    description: Machine-readable layout identifier (e.g. "neo20", "bone", "neoqwertz").
+    description: Machine-readable identifier of the layout.
+    pattern: "^[a-z0-9.-]+$"
+  displayName:
+    type: string
+    description: Human-readable name of the layout.
   # noinspection YAMLSchemaValidation
   description:
     type: string
@@ -67,7 +70,7 @@ $defs:
         $ref: "#/$defs/keyEffect"
     minProperties: 65
     maxProperties: 65
-    tsType: '{[K in KeyCode]: KeyEffect}'
+    tsType: "{[K in KeyCode]: KeyEffect}"
 
   keyCode:
     title: KeyCode

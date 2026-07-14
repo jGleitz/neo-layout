@@ -1,6 +1,11 @@
 import { MAIN_PANEL_CODES } from "./codes.js";
 import { getWhitespaceName, glyphToDeadKeyName } from "./effects.js";
-import type {KeyCode, KeyEffect, Level, Neo2FamilyLayout} from "./generated/layout.js";
+import type {
+  KeyCode,
+  KeyEffect,
+  Level,
+  Neo2FamilyLayout,
+} from "./generated/layout.js";
 
 const MAIN_PANEL_HEADER = "=== Alle Ebenen – Haupttastatur ===";
 const KEYPAD_PANEL_HEADER = "=== Alle Ebenen – Ziffernblock ===";
@@ -74,22 +79,17 @@ const LEVEL4_KEYPAD_GLYPH_TO_KEY: Readonly<Record<string, KeyEffect>> = {
   ",": { key: "NeoNumpadDecimal" },
 };
 
-type Levels = Neo2FamilyLayout["levels"]
-type PartialLevels = {[L in keyof Levels]: Partial<Level>}
+type Levels = Neo2FamilyLayout["levels"];
+type PartialLevels = { [L in keyof Levels]: Partial<Level> };
 
-export function parseNeoReference(
-  source: string,
-  name: string,
-  description: string,
-): Omit<Neo2FamilyLayout, "$schema"> {
+export function parseNeoReference(source: string): Neo2FamilyLayout["levels"] {
   const levels = createEmptyLevels();
 
   parseMainPanel(extractPanelRows(source, MAIN_PANEL_HEADER), levels);
   parseKeypadPanel(extractPanelRows(source, KEYPAD_PANEL_HEADER), levels);
 
-  return { name, description, levels: levels as Levels };
+  return levels as Levels;
 }
-
 
 function createEmptyLevels(): PartialLevels {
   return {
@@ -147,10 +147,7 @@ function isPanelContentRow(line: string): boolean {
   );
 }
 
-function parseMainPanel(
-  rows: PanelRows,
-  levels: PartialLevels,
-): void {
+function parseMainPanel(rows: PanelRows, levels: PartialLevels): void {
   parseMainCodeRow(rows[0], rows[1], MAIN_PANEL_CODES[0], 0, levels);
   parseMainCodeRow(rows[2], rows[3], MAIN_PANEL_CODES[1], 0, levels);
   parseMainCodeRow(rows[4], rows[5], MAIN_PANEL_CODES[2], 1, levels);
@@ -229,10 +226,7 @@ function parseSpaceCell(): KeyEffect[] {
   return [space, space, space, { key: "NeoNumpad0" }, nbsp, narrowNbsp];
 }
 
-function parseKeypadPanel(
-  rows: PanelRows,
-  levels: PartialLevels,
-): void {
+function parseKeypadPanel(rows: PanelRows, levels: PartialLevels): void {
   if (rows.length !== 10) {
     throw new Error(
       `Expected 10 keypad panel content rows, got ${rows.length}`,

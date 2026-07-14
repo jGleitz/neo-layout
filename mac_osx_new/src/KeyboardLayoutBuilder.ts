@@ -1,5 +1,6 @@
 import { create } from "xmlbuilder2";
 import type { XMLBuilder } from "xmlbuilder2/lib/interfaces.js";
+import { createHash } from "node:crypto";
 
 const MODIFIER_MAP_ID = "mainModifierMap";
 const KEY_MAP_SET_ID = "mainKeyMapSet";
@@ -9,15 +10,15 @@ export class KeyboardLayoutBuilder {
   private readonly modifierMap: XMLBuilder;
   private readonly keyMapSet: XMLBuilder;
 
-  constructor(name: string) {
+  constructor(id: string, displayName: string) {
     this.document.dtd({
       name: "keyboard",
       sysID: "file://localhost/System/Library/DTDs/KeyboardLayout.dtd",
     });
     const keyboard = this.document.ele("keyboard", {
       group: "126", // value taken from pre-existing layout. TODO understand
-      id: "-68987", // random value. TODO understand
-      name,
+      id: -createHash("sha256").update(id).digest().readUInt16BE(), // TODO understand
+      name: displayName,
     });
     keyboard.ele("layouts").ele("layout", {
       first: "0", // TODO,
