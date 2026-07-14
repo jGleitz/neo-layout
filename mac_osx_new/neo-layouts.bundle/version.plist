@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist>
+<plist version="1.0">
+  <dict>
+    <key>BuildVersion</key>
+    <string>0</string>
+    <key>
+      ProjectName
+      <string>Neo Layouts (v3)</string>
+      <key>SourceVersion</key>
+      <string>3.0.0</string>
+    </key>
+  </dict>
+</plist>
