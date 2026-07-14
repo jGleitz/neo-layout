@@ -15,7 +15,7 @@ const MODELS_PATH = path.join(
   "model",
   "generated",
 );
-const BUNDLE_PATH = path.join(import.meta.dirname, "..", "neo-layouts.bundle");
+const BUNDLE_PATH = path.join(import.meta.dirname, "..", "neo-layouts_v3.bundle");
 
 async function generateBundleStructure() {
   await fs.mkdir(path.join(BUNDLE_PATH, "Contents", "Resources"), {
