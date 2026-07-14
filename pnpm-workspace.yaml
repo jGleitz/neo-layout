@@ -1,0 +1,21 @@
+packages:
+  - "model"
+  - "mac_osx_new"
+
+allowBuilds:
+  esbuild: true
+
+catalog:
+  "@tsconfig/node26": ^26.0.0
+  "@types/node": ^26.1.1
+  "@types/unicode-name": ^1.1.0
+  ajv: ^8.20.0
+  "ajv-formats": ^3.0.1
+  fast-xml-builder: ^1.2.1
+  "json-schema-to-typescript": ^15.0.4
+  prettier: ^3.9.5
+  tsx: ^4.23.0
+  typescript: ^7.0.2
+  "unicode-name": ^1.1.0
+  xmlbuilder2: ^4.0.3
+  yaml: ^2.9.0

@@ -1,0 +1,19 @@
+{
+  "name": "neo-layout",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Neo keyboard layout implementations",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "generate": "pnpm -r generate",
+    "format": "pnpm -r format"
+  },
+  "devDependencies": {
+    "prettier": "catalog:"
+  },
+  "engines": {
+    "node": ">=26.0.0"
+  },
+  "packageManager": "pnpm@10.34.4"
+}

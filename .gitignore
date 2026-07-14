@@ -60,5 +60,8 @@ __pycache__
 # /yaml/
 /yaml/.git
 
+node_modules/
+dist/
+
 .omo/
 .idea/

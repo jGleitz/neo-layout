@@ -1,6 +1,6 @@
 import { MAIN_PANEL_CODES } from "./codes.js";
 import { getWhitespaceName, glyphToDeadKeyName } from "./effects.js";
-import type { KeyEffect, Neo2FamilyLayout } from "./generated/layout.js";
+import type {KeyCode, KeyEffect, Level, Neo2FamilyLayout} from "./generated/layout.js";
 
 const MAIN_PANEL_HEADER = "=== Alle Ebenen – Haupttastatur ===";
 const KEYPAD_PANEL_HEADER = "=== Alle Ebenen – Ziffernblock ===";
@@ -74,6 +74,9 @@ const LEVEL4_KEYPAD_GLYPH_TO_KEY: Readonly<Record<string, KeyEffect>> = {
   ",": { key: "NeoNumpadDecimal" },
 };
 
+type Levels = Neo2FamilyLayout["levels"]
+type PartialLevels = {[L in keyof Levels]: Partial<Level>}
+
 export function parseNeoReference(
   source: string,
   name: string,
@@ -84,10 +87,11 @@ export function parseNeoReference(
   parseMainPanel(extractPanelRows(source, MAIN_PANEL_HEADER), levels);
   parseKeypadPanel(extractPanelRows(source, KEYPAD_PANEL_HEADER), levels);
 
-  return { name, description, levels };
+  return { name, description, levels: levels as Levels };
 }
 
-function createEmptyLevels(): Neo2FamilyLayout["levels"] {
+
+function createEmptyLevels(): PartialLevels {
   return {
     level1: {},
     level2: {},
@@ -145,7 +149,7 @@ function isPanelContentRow(line: string): boolean {
 
 function parseMainPanel(
   rows: PanelRows,
-  levels: Neo2FamilyLayout["levels"],
+  levels: PartialLevels,
 ): void {
   parseMainCodeRow(rows[0], rows[1], MAIN_PANEL_CODES[0], 0, levels);
   parseMainCodeRow(rows[2], rows[3], MAIN_PANEL_CODES[1], 0, levels);
@@ -157,9 +161,9 @@ function parseMainPanel(
 function parseMainCodeRow(
   topRow: string,
   bottomRow: string,
-  codes: readonly string[],
+  codes: readonly KeyCode[],
   skipCells: number,
-  levels: Neo2FamilyLayout["levels"],
+  levels: PartialLevels,
 ): void {
   const topCells = splitPanelCells(topRow).slice(skipCells);
   const bottomCells = splitPanelCells(bottomRow).slice(skipCells);
@@ -227,7 +231,7 @@ function parseSpaceCell(): KeyEffect[] {
 
 function parseKeypadPanel(
   rows: PanelRows,
-  levels: Neo2FamilyLayout["levels"],
+  levels: PartialLevels,
 ): void {
   if (rows.length !== 10) {
     throw new Error(
@@ -342,8 +346,8 @@ function normalizeGlyph(code: string, glyph: string): KeyEffect {
 }
 
 function assignLevels(
-  levels: Neo2FamilyLayout["levels"],
-  code: string,
+  levels: PartialLevels,
+  code: KeyCode,
   values: readonly KeyEffect[],
 ): void {
   LEVEL_NAMES.forEach((levelName, index) => {

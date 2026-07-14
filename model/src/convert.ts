@@ -14,13 +14,13 @@ const SOURCES: ReadonlyArray<{
   name: string;
   description: string;
 }> = [
-  { file: "neo20.txt", name: "neo20", description: "Neo2 standard layout" },
+  { file: "neo20.txt", name: "Neo 2", description: "Neo2 standard layout" },
   {
     file: "neoqwertz.txt",
-    name: "neoqwertz",
+    name: "Neo-QWERTZ",
     description: "Neo-QWERTZ layout",
   },
-  { file: "bone.txt", name: "bone", description: "Bone layout" },
+  { file: "bone.txt", name: "Bone", description: "Bone layout" },
 ];
 
 async function main(): Promise<void> {

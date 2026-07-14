@@ -1,0 +1,23 @@
+{
+  "name": "neo-layout-mac-osx-new",
+  "version": "0.1.0",
+  "description": "Neo keyboard layout generator for macOS",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write .",
+    "generate": "node dist/generate.js"
+  },
+  "dependencies": {
+    "fast-xml-builder": "catalog:",
+    "neo-layout-model": "workspace:*",
+    "xmlbuilder2": "catalog:",
+    "yaml": "catalog:"
+  },
+  "devDependencies": {
+    "@tsconfig/node26": "catalog:",
+    "@types/node": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
+}

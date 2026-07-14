@@ -32,7 +32,7 @@ properties:
     type: string
   name:
     type: string
-    pattern: "^[a-z0-9-]+$"
+    pattern: "^[a-zA-Z0-9]([a-zA-Z0-9- _]+[a-zA-Z0-9])?$"
     description: Machine-readable layout identifier (e.g. "neo20", "bone", "neoqwertz").
   # noinspection YAMLSchemaValidation
   description:
@@ -67,6 +67,7 @@ $defs:
         $ref: "#/$defs/keyEffect"
     minProperties: 65
     maxProperties: 65
+    tsType: '{[K in KeyCode]: KeyEffect}'
 
   keyCode:
     title: KeyCode

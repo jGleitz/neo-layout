@@ -17,6 +17,7 @@ export const schemaPath = path.join(
 function loadJsonSchemaValidator() {
   const ajv = new Ajv2020({ allErrors: true, strict: true });
   ajv.addFormat("uri", fullFormats.uri);
+  ajv.addKeyword("tsType");
   const schemaContent = YAML.parse(fs.readFileSync(schemaPath, "utf8"));
   return ajv.compile<Neo2FamilyLayout>(schemaContent);
 }

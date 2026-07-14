@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
+<keyboard group="" id="" name="">
+    <layouts>
+        <layout first="" last="" modifiers="" mapSet=""/>
+    </layouts>
+    <modifierMap id="" defaultIndex="">
+        <keyMapSelect mapIndex="">
+            <modifier keys=""/>
+        </keyMapSelect>
+    </modifierMap>
+    <keyMapSet id="">
+        <keyMap index="">
+            <key code=""></key>
+        </keyMap>
+    </keyMapSet>
+</keyboard>

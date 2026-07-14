@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
+<keyboard group="126" id="-68987" name="Neo 2">
+  <layouts>
+    <layout first="0" last="0" modifiers="mainModifierMap" mapSet="mainKeyMapSet"/>
+  </layouts>
+  <modifierMap id="mainModifierMap" defaultIndex="1">
+    <keyMapSelect mapIndex="1">
+      <modifier keys=""/>
+    </keyMapSelect>
+  </modifierMap>
+  <keyMapSet id="mainKeyMapSet">
+    <keyMap index="1">
+      <!--Digit1 → "1"-->
+      <key code="18" output="1"/>
+      <!--Digit2 → "2"-->
+      <key code="19" output="2"/>
+      <!--Digit3 → "3"-->
+      <key code="20" output="3"/>
+      <!--Digit4 → "4"-->
+      <key code="21" output="4"/>
+      <!--Digit5 → "5"-->
+      <key code="23" output="5"/>
+      <!--Digit6 → "6"-->
+      <key code="22" output="6"/>
+      <!--Digit7 → "7"-->
+      <key code="26" output="7"/>
+      <!--Digit8 → "8"-->
+      <key code="28" output="8"/>
+      <!--Digit9 → "9"-->
+      <key code="25" output="9"/>
+      <!--Digit0 → "0"-->
+      <key code="29" output="0"/>
+      <!--Minus → "-"-->
+      <key code="27" output="-"/>
+      <!--KeyQ → "x"-->
+      <key code="12" output="x"/>
+      <!--KeyW → "v"-->
+      <key code="13" output="v"/>
+      <!--KeyE → "l"-->
+      <key code="14" output="l"/>
+      <!--KeyR → "c"-->
+      <key code="15" output="c"/>
+      <!--KeyT → "w"-->
+      <key code="17" output="w"/>
+      <!--KeyY → "k"-->
+      <key code="16" output="k"/>
+      <!--KeyU → "h"-->
+      <key code="32" output="h"/>
+      <!--KeyI → "g"-->
+      <key code="34" output="g"/>
+      <!--KeyO → "f"-->
+      <key code="31" output="f"/>
+      <!--KeyP → "q"-->
+      <key code="35" output="q"/>
+      <!--BracketLeft → "ß"-->
+      <key code="33" output="ß"/>
+      <!--KeyA → "u"-->
+      <key code="0" output="u"/>
+      <!--KeyS → "i"-->
+      <key code="1" output="i"/>
+      <!--KeyD → "a"-->
+      <key code="2" output="a"/>
+      <!--KeyF → "e"-->
+      <key code="3" output="e"/>
+      <!--KeyG → "o"-->
+      <key code="5" output="o"/>
+      <!--KeyH → "s"-->
+      <key code="4" output="s"/>
+      <!--KeyJ → "n"-->
+      <key code="38" output="n"/>
+      <!--KeyK → "r"-->
+      <key code="40" output="r"/>
+      <!--KeyL → "t"-->
+      <key code="37" output="t"/>
+      <!--Semicolon → "d"-->
+      <key code="41" output="d"/>
+      <!--Quote → "y"-->
+      <key code="39" output="y"/>
+      <!--KeyZ → "ü"-->
+      <key code="6" output="ü"/>
+      <!--KeyX → "ö"-->
+      <key code="7" output="ö"/>
+      <!--KeyC → "ä"-->
+      <key code="8" output="ä"/>
+      <!--KeyV → "p"-->
+      <key code="9" output="p"/>
+      <!--KeyB → "z"-->
+      <key code="11" output="z"/>
+      <!--KeyN → "b"-->
+      <key code="45" output="b"/>
+      <!--KeyM → "m"-->
+      <key code="46" output="m"/>
+      <!--Comma → ","-->
+      <key code="43" output=","/>
+      <!--Period → "."-->
+      <key code="47" output="."/>
+      <!--Slash → "j"-->
+      <key code="44" output="j"/>
+      <!--NumpadDivide → "/"-->
+      <key code="75" output="/"/>
+      <!--NumpadMultiply → "*"-->
+      <key code="67" output="*"/>
+      <!--NumpadSubtract → "-"-->
+      <key code="78" output="-"/>
+      <!--Numpad7 → "7"-->
+      <key code="89" output="7"/>
+      <!--Numpad8 → "8"-->
+      <key code="91" output="8"/>
+      <!--Numpad9 → "9"-->
+      <key code="92" output="9"/>
+      <!--Numpad4 → "4"-->
+      <key code="86" output="4"/>
+      <!--Numpad5 → "5"-->
+      <key code="87" output="5"/>
+      <!--Numpad6 → "6"-->
+      <key code="88" output="6"/>
+      <!--NumpadAdd → "+"-->
+      <key code="69" output="+"/>
+      <!--Numpad1 → "1"-->
+      <key code="83" output="1"/>
+      <!--Numpad2 → "2"-->
+      <key code="84" output="2"/>
+      <!--Numpad3 → "3"-->
+      <key code="85" output="3"/>
+      <!--Numpad0 → "0"-->
+      <key code="82" output="0"/>
+      <!--NumpadDecimal → ","-->
+      <key code="65" output=","/>
+    </keyMap>
+  </keyMapSet>
+</keyboard>
