@@ -26,9 +26,12 @@ async function generateBundleStructure() {
     recursive: true,
   });
   await Promise.all([
-    fs.writeFile(path.join(BUNDLE_PATH, "Info.plist"), generateInfoPlist()),
     fs.writeFile(
-      path.join(BUNDLE_PATH, "version.plist"),
+      path.join(BUNDLE_PATH, "Contents", "Info.plist"),
+      generateInfoPlist(),
+    ),
+    fs.writeFile(
+      path.join(BUNDLE_PATH, "Contents", "version.plist"),
       generateVersionPlist(),
     ),
   ]);
