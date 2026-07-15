@@ -58,8 +58,6 @@ function generateLayoutInfo(bundle: MacOsBundle, layout: Neo2FamilyLayout) {
 export function generateKeylayout(
   layout: Neo2FamilyLayout,
 ): KeyboardLayoutBuilder {
-  // Placeholder structure that satisfies the DTD. The real Neo → keylayout
-  // mapping still needs to be implemented.
   return new KeyboardLayoutBuilder(layout.id, layout.displayName).addKeyMap(
     ...generateLevel1(layout),
   )
