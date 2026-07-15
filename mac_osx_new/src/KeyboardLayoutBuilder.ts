@@ -17,7 +17,7 @@ export class KeyboardLayoutBuilder {
     });
     const keyboard = this.document.ele("keyboard", {
       group: "126", // value taken from pre-existing layout. TODO understand
-      id: -createHash("sha256").update(id).digest().readUInt16BE(), // TODO understand
+      id: -Math.abs(createHash("sha256").update(id).digest().readInt16BE()), // TODO understand
       name: displayName,
     });
     keyboard.ele("layouts").ele("layout", {

@@ -34,7 +34,7 @@ function initBundleVersion(bundle: MacOsBundle) {
   bundle.version = {
     BuildVersion: "0",
     ProjectName: "Neo Layouts (v3)",
-    SourceVersion: "0",
+    SourceVersion: "3.0.0",
   };
 }
 
