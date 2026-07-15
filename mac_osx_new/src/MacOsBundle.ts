@@ -17,7 +17,7 @@ export class MacOsBundle {
   constructor(readonly dir: string) {}
 
   async write() {
-    await fs.rm(path.join(this.dir), { recursive: true });
+    await fs.rm(path.join(this.dir), { recursive: true, force: true });
     await fs.mkdir(path.join(this.dir, "Contents", "Resources"), {
       recursive: true,
     });

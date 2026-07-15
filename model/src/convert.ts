@@ -7,7 +7,7 @@ import { schemaPath, validateLayout } from "./validateLayout.js";
 import type { Neo2FamilyLayout } from "./generated/layout.js";
 
 const REFERENCE_DIR = "../A-REFERENZ-A";
-const OUTPUT_DIR = "generated";
+const OUTPUT_DIR = "./generated";
 
 const SOURCES: ReadonlyArray<
   {
@@ -35,7 +35,7 @@ const SOURCES: ReadonlyArray<
 ];
 
 async function main(): Promise<void> {
-  await fs.rm(OUTPUT_DIR, {recursive: true});
+  await fs.rm(OUTPUT_DIR, {recursive: true, force: true});
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
   let allValid = true;
 
