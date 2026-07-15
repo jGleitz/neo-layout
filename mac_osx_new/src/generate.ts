@@ -4,9 +4,10 @@ import * as fs from "node:fs/promises";
 import * as YAML from "yaml";
 import { OneOrMore } from "./KeyboardLayout.js";
 import { APPLE_VIRTUAL_KEY_CODES } from "./appleKeyCodes.js";
-import { create, fragment } from "xmlbuilder2";
+import { fragment } from "xmlbuilder2";
 import type { XMLBuilder } from "xmlbuilder2/lib/interfaces.js";
 import { KeyboardLayoutBuilder } from "./KeyboardLayoutBuilder.js";
+import { MacOsBundle } from "./MacOsBundle.js";
 
 const MODELS_PATH = path.join(
   import.meta.dirname,
@@ -21,122 +22,29 @@ const BUNDLE_PATH = path.join(
   "neo-layouts_v3.bundle",
 );
 
-async function generateBundleStructure() {
-  await fs.mkdir(path.join(BUNDLE_PATH, "Contents", "Resources"), {
-    recursive: true,
-  });
-  await Promise.all([
-    fs.writeFile(
-      path.join(BUNDLE_PATH, "Contents", "Info.plist"),
-      generateInfoPlist(),
-    ),
-    fs.writeFile(
-      path.join(BUNDLE_PATH, "Contents", "version.plist"),
-      generateVersionPlist(),
-    ),
-  ]);
+function initBundleInfo(bundle: MacOsBundle) {
+  bundle.info = {
+    CFBundleIdentifier: "org.neo-layout.neo-layouts",
+    CFBundleName: "Neo Layouts (v3)",
+    CFBundleVersion: "3.0.0",
+  };
 }
 
-function generateInfoPlist() {
-  const plist = createPlist()
-    .ele("dict", {})
-    .ele("key")
-    .txt("CFBundleIdentifier")
-    .up()
-    .ele("string")
-    .txt("org.neo-layout.neo-layouts")
-    .up()
-    .ele("key")
-    .txt("CFBundleName")
-    .up()
-    .ele("string")
-    .txt("Neo Layouts (v3)")
-    .up()
-    .ele("key")
-    .txt("CFBundleVersion")
-    .up()
-    .ele("string")
-    .txt("3.0.0")
-    .up();
-
-  generatePlistParams(
-    plist,
-    "Deutsch (Neo 2 v3)",
-    "org.neo-layout.neo-layouts.de.neo2",
-  );
-
-  return plist.end({
-    prettyPrint: true,
-  });
+function initBundleVersion(bundle: MacOsBundle) {
+  bundle.version = {
+    BuildVersion: "0",
+    ProjectName: "Neo Layouts (v3)",
+    SourceVersion: "0",
+  };
 }
 
-function createPlist(): XMLBuilder {
-  return create({ version: "1.0", encoding: "UTF-8" })
-    .dtd({
-      name: "plist",
-      pubID: "-//Apple//DTD PLIST 1.0//EN",
-    })
-    .dtd()
-    .ele("plist", {
-      version: "1.0",
-    });
-}
-
-function generatePlistParams(
-  plist: XMLBuilder,
-  layoutName: string,
-  layoutId: string,
-) {
-  plist
-    .ele("key")
-    .txt(`KLInfo_${layoutName}`)
-    .up()
-    .ele("dict")
-    .ele("key")
-    .txt("TISInputSourceID")
-    .up()
-    .ele("string")
-    .txt(layoutId)
-    .up()
-    .ele("key")
-    .txt("TISIntendedLanguage")
-    .up()
-    .ele("string")
-    .txt("de")
-    .up()
-    .ele("key")
-    .txt("TICapsLockLanguageSwitchCapable")
-    .up()
-    .ele("false")
-    .up()
-    .ele("key")
-    .txt("TISIconIsTemplate")
-    .up()
-    .ele("false")
-    .up();
-}
-
-function generateVersionPlist(): string {
-  return createPlist()
-    .ele("dict")
-    .ele("key")
-    .txt("BuildVersion")
-    .up()
-    .ele("string")
-    .txt("0")
-    .up()
-    .ele("key")
-    .txt("ProjectName")
-    .ele("string")
-    .txt("Neo Layouts (v3)")
-    .up()
-    .ele("key")
-    .txt("SourceVersion")
-    .up()
-    .ele("string")
-    .txt("3.0.0")
-    .up()
-    .end({ prettyPrint: true });
+function generateLayoutInfo(bundle: MacOsBundle, layout: Neo2FamilyLayout) {
+  bundle.info[`KLInfo_${layout.displayName}`] = {
+    TISInputSourceID: layout.id,
+    TISIconIsTemplate: false,
+    TICapsLockLanguageSwitchCapable: false,
+    TISIntendedLanguage: "de",
+  };
 }
 
 export function generateKeylayout(
@@ -185,47 +93,52 @@ function generateLevel1(layout: Neo2FamilyLayout): [XMLBuilder, XMLBuilder] {
   return [select, map];
 }
 
-async function generateAll() {
-  await fs.mkdir(BUNDLE_PATH, { recursive: true });
-  let errors = [];
-
+async function forEachModel(
+  action: (layout: Neo2FamilyLayout) => Promise<void>,
+): Promise<string[]> {
   const modelFiles = (await fs.readdir(MODELS_PATH))
     .filter((file) => file.endsWith(".yaml"))
     .map((file) => path.join(MODELS_PATH, file));
 
-  await fs.rm(path.join(BUNDLE_PATH), { recursive: true });
-  await generateBundleStructure();
+  return (
+    await Promise.all(
+      modelFiles.map((filePath) =>
+        (async () => {
+          const parsed = YAML.parse(
+            await fs.readFile(filePath, "utf-8"),
+          ) as unknown;
+          const validationResult = validateLayout(parsed);
+          if (Array.isArray(validationResult)) {
+            return validationResult.map((error) => `${filePath}: ${error}`);
+          }
 
-  for (const filePath of modelFiles) {
-    const parsed = YAML.parse(await fs.readFile(filePath, "utf-8")) as unknown;
-    const validationResult = validateLayout(parsed);
-    if (Array.isArray(validationResult)) {
-      errors.push(...validationResult.map((error) => `${filePath}: ${error}`));
-      continue;
-    }
-    // TODO avoid cast
-    const layout = validationResult as Neo2FamilyLayout;
+          // TODO avoid cast
+          const layout = validationResult as Neo2FamilyLayout;
+          await action(layout);
+          return [];
+        })(),
+      ),
+    )
+  ).flat();
+}
 
-    const keylayout = generateKeylayout(layout);
-    const outputPath = path.join(
-      BUNDLE_PATH,
-      "Contents",
-      "Resources",
-      `${layout.displayName}.keylayout`,
-    );
-    await fs.writeFile(outputPath, keylayout.build(), "utf-8");
+async function generateAll() {
+  const bundle = new MacOsBundle(BUNDLE_PATH);
+  initBundleInfo(bundle);
+  initBundleVersion(bundle);
 
-    console.log(
-      path.relative(process.cwd(), filePath) +
-        " -> " +
-        path.relative(process.cwd(), outputPath),
-    );
-  }
+  const validationErrors = await forEachModel(async (layout) => {
+    const appleKeylayout = generateKeylayout(layout);
+    bundle.resources[`${layout.displayName}.keylayout`] =
+      appleKeylayout.build();
+    generateLayoutInfo(bundle, layout);
+  });
 
-  if (errors.length > 0) {
-    for (const error of errors) {
-      console.error(error);
-    }
+  await bundle.write();
+  console.log("Wrote bundle to ", bundle.dir);
+
+  if (validationErrors.length > 0) {
+    validationErrors.forEach(console.error);
     process.exit(1);
   }
 }

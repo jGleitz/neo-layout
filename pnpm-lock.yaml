@@ -12,33 +12,15 @@ catalogs:
     '@types/node':
       specifier: ^26.1.1
       version: 26.1.1
-    '@types/unicode-name':
-      specifier: ^1.1.0
-      version: 1.1.0
-    ajv:
-      specifier: ^8.20.0
-      version: 8.20.0
-    ajv-formats:
-      specifier: ^3.0.1
-      version: 3.0.1
     fast-xml-builder:
       specifier: ^1.2.1
       version: 1.2.1
-    json-schema-to-typescript:
-      specifier: ^15.0.4
-      version: 15.0.4
     prettier:
       specifier: ^3.9.5
       version: 3.9.5
-    tsx:
-      specifier: ^4.23.0
-      version: 4.23.0
     typescript:
       specifier: ^7.0.2
       version: 7.0.2
-    unicode-name:
-      specifier: ^1.1.0
-      version: 1.1.0
     xmlbuilder2:
       specifier: ^4.0.3
       version: 4.0.3
