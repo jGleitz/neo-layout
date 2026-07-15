@@ -13,34 +13,34 @@
  */
 
 /** Helper for DTD occurrences `+` (one or more). */
-export type OneOrMore<T> = readonly [T, ...T[]];
+export type OneOrMore<T> = readonly [T, ...T[]]
 
 /** Optional XML comment that `fast-xml-builder` renders as `<!-- ... -->`. */
-type Comment = { readonly comment: string | [{ "#text": string }] };
+type Comment = { readonly comment: string | [{ "#text": string }] }
 
 /**
  * A modifier key that has a ‘left’, a ‘right’ and an ‘any’ variant. E.g. `shift`, `rightShift`, `anyShift`.
  */
 type LeftRightAny<Key extends string> = {
-  left: Key;
-  right: `right${Capitalize<Key>}`;
-  any: `any${Capitalize<Key>}`;
-};
-type ModKey = LeftRightAny<string> | string;
+  left: Key
+  right: `right${Capitalize<Key>}`
+  any: `any${Capitalize<Key>}`
+}
+type ModKey = LeftRightAny<string> | string
 
 type RequiredOrIrrelevantOrMissing<Key extends ModKey> = Key extends string
   ? [Key] | [`${Key}?`] | []
   : Key extends LeftRightAny<string>
     ? | AllModifierCombinations<[Key["left"], Key["right"]]>
       | RequiredOrIrrelevantOrMissing<Key["any"]>
-    : never;
+    : never
 
 type AllModifierCombinations<Options extends ModKey[]> = Options extends [
   infer First extends ModKey,
   ...infer Rest extends ModKey[],
 ]
   ? [...RequiredOrIrrelevantOrMissing<First>, ...AllModifierCombinations<Rest>]
-  : [];
+  : []
 
 type SpaceJoined<Options extends string[]> = Options extends [
   infer Last extends string,
@@ -48,7 +48,7 @@ type SpaceJoined<Options extends string[]> = Options extends [
   ? Last
   : Options extends [infer First extends string, ...infer Rest extends string[]]
     ? `${First} ${SpaceJoined<Rest>}`
-    : "";
+    : ""
 
 /**
  * Whitespace-separated list of modifier key specifications.
@@ -66,7 +66,7 @@ type ModifierSpec = SpaceJoined<
       "caps",
     ]
   >
->;
+>
 
 /**
  * Enforces that `baseMapSet` and `baseIndex` are either both present or both
@@ -74,7 +74,7 @@ type ModifierSpec = SpaceJoined<
  */
 type KeyMapBaseAttributes =
   | { readonly baseMapSet: string; readonly baseIndex: string }
-  | { readonly baseMapSet?: undefined; readonly baseIndex?: undefined };
+  | { readonly baseMapSet?: undefined; readonly baseIndex?: undefined }
 
 /** The root `<keyboard>` element. */
 export type KeyboardLayout = {
@@ -86,60 +86,60 @@ export type KeyboardLayout = {
      * (2), Korean (3), Cyrillic (7), Simplified Chinese (25), and Central
      * European (29).
      */
-    readonly group: string;
+    readonly group: string
     /**
      * The unique ID for the keyboard. This is numeric and must match the
      * script bundle specified in `group`. Unicode keyboards use negative IDs.
      * If this ID collides with another keyboard, the system will assign a new
      * one.
      */
-    readonly id: string;
+    readonly id: string
     /**
      * The name of the keyboard as it appears in the Keyboard Menu. This name
      * cannot be localized via the XML file (use a bundle for localization).
      */
-    readonly name: string;
+    readonly name: string
     /**
      * The maximum number of UTF-16 values that can be generated from a single
      * keypress.
      */
-    readonly maxout?: string;
-  };
+    readonly maxout?: string
+  }
   /** `<layouts>+` */
-  readonly layouts: OneOrMore<Layouts>;
+  readonly layouts: OneOrMore<Layouts>
   /** `<modifierMap>+` */
-  readonly modifierMap: OneOrMore<ModifierMap>;
+  readonly modifierMap: OneOrMore<ModifierMap>
   /** `<keyMapSet>+` */
-  readonly keyMapSet: OneOrMore<KeyMapSet>;
+  readonly keyMapSet: OneOrMore<KeyMapSet>
   /** `<actions>*` */
-  readonly actions?: Actions;
+  readonly actions?: Actions
   /** `<terminators>*` */
-  readonly terminators?: Terminators;
-} & Partial<Comment>;
+  readonly terminators?: Terminators
+} & Partial<Comment>
 
 /** Top-level wrapper passed to `XMLBuilder.build`. */
 export type KeyboardLayoutDocument = {
-  readonly keyboard: KeyboardLayout;
-} & Partial<Comment>;
+  readonly keyboard: KeyboardLayout
+} & Partial<Comment>
 
 /** `<layouts>` — container for one or more `<layout>` entries. */
 export type Layouts = {
-  readonly layout: OneOrMore<Layout>;
-} & Partial<Comment>;
+  readonly layout: OneOrMore<Layout>
+} & Partial<Comment>
 
 /** `<layout>` — EMPTY. */
 export type Layout = {
   readonly attributes: {
     /** The hardware ID of the first keyboard type controlled by this element. */
-    readonly first: string;
+    readonly first: string
     /** The hardware ID of the last keyboard type controlled by this element. */
-    readonly last: string;
+    readonly last: string
     /** Identifier of the `<modifierMap>` to use for this hardware ID range. */
-    readonly modifiers: string;
+    readonly modifiers: string
     /** Identifier of the `<keyMapSet>` to use for this hardware ID range. */
-    readonly mapSet: string;
-  };
-} & Partial<Comment>;
+    readonly mapSet: string
+  }
+} & Partial<Comment>
 
 /** `<modifierMap>` — container for one or more `<keyMapSelect>` entries. */
 export type ModifierMap = {
@@ -148,15 +148,15 @@ export type ModifierMap = {
      * Arbitrary string identifying this `<modifierMap>`. Must be unique across
      * all `<modifierMap>` elements in the document.
      */
-    readonly id: string;
+    readonly id: string
     /**
      * The table number to use for modifier key combinations that are not
      * explicitly specified by any `<modifier>` element within this map.
      */
-    readonly defaultIndex: string;
-  };
-  readonly keyMapSelect: OneOrMore<KeyMapSelect>;
-} & Partial<Comment>;
+    readonly defaultIndex: string
+  }
+  readonly keyMapSelect: OneOrMore<KeyMapSelect>
+} & Partial<Comment>
 
 /** `<keyMapSelect>` — container for one or more `<modifier>` entries. */
 export type KeyMapSelect = {
@@ -165,10 +165,10 @@ export type KeyMapSelect = {
      * Table number, starting from 0, to which the modifier key combinations
      * specified by the contained `<modifier>` elements should be mapped.
      */
-    readonly mapIndex: string;
-  };
-  readonly modifier: OneOrMore<Modifier>;
-} & Partial<Comment>;
+    readonly mapIndex: string
+  }
+  readonly modifier: OneOrMore<Modifier>
+} & Partial<Comment>
 
 /** `<modifier>` — EMPTY. */
 export type Modifier = {
@@ -178,9 +178,9 @@ export type Modifier = {
      * modifier must be pressed, absence means it must not be pressed, and a
      * trailing `?` means the state is irrelevant.
      */
-    readonly keys: ModifierSpec;
-  };
-} & Partial<Comment>;
+    readonly keys: ModifierSpec
+  }
+} & Partial<Comment>
 
 /** `<keyMapSet>` — container for one or more `<keyMap>` entries. */
 export type KeyMapSet = {
@@ -189,10 +189,10 @@ export type KeyMapSet = {
      * Identifier for this `<keyMapSet>`. Must be unique across all
      * `<keyMapSet>` elements in the document.
      */
-    readonly id: string;
-  };
-  readonly keyMap: OneOrMore<KeyMap>;
-} & Partial<Comment>;
+    readonly id: string
+  }
+  readonly keyMap: OneOrMore<KeyMap>
+} & Partial<Comment>
 
 /** `<keyMap>` — container for one or more `<key>` entries. */
 export type KeyMap = {
@@ -200,10 +200,10 @@ export type KeyMap = {
     /**
      * The table number. This is referenced from the `<keyMapSelect>` element.
      */
-    readonly index: string;
-  } & KeyMapBaseAttributes;
-  readonly key: readonly (Key | Comment)[];
-} & Partial<Comment>;
+    readonly index: string
+  } & KeyMapBaseAttributes
+  readonly key: readonly (Key | Comment)[]
+} & Partial<Comment>
 
 /** `<key>` — may contain zero or more inline `<action>` children. */
 export type Key = {
@@ -212,31 +212,31 @@ export type Key = {
      * The decimal virtual key code that this element maps. Must be unique
      * across all `<key>` elements within a particular `<keyMap>`.
      */
-    readonly code: string;
+    readonly code: string
     /**
      * String of UTF-16 values to output unconditionally when this virtual key
      * is received.
      */
-    readonly output?: string;
+    readonly output?: string
     /**
      * Identifier of a named `<action>` (from the `<actions>` element) to
      * execute when this virtual key is received.
      */
-    readonly action?: string;
-  };
+    readonly action?: string
+  }
   /** `<action>*` inline anonymous actions. */
-  readonly action?: readonly AnonymousAction[];
-} & Partial<Comment>;
+  readonly action?: readonly AnonymousAction[]
+} & Partial<Comment>
 
 /** `<actions>` — container for one or more named `<action>` entries. */
 export type Actions = {
-  readonly action: OneOrMore<NamedAction>;
-} & Partial<Comment>;
+  readonly action: OneOrMore<NamedAction>
+} & Partial<Comment>
 
 /** Common shape shared by named and anonymous `<action>` elements. */
 type ActionBase = {
-  readonly when: OneOrMore<When>;
-} & Partial<Comment>;
+  readonly when: OneOrMore<When>
+} & Partial<Comment>
 
 /**
  * `<action>` used inside `<actions>`. It must have an `id` so that `<key>`
@@ -245,15 +245,15 @@ type ActionBase = {
 export type NamedAction = ActionBase & {
   readonly attributes: {
     /** Arbitrary string identifying this action. Must be unique. */
-    readonly id: string;
-  };
-};
+    readonly id: string
+  }
+}
 
 /**
  * `<action>` used inline as a child of `<key>`. It must not have an `id`
  * attribute.
  */
-export type AnonymousAction = ActionBase;
+export type AnonymousAction = ActionBase
 
 /** `<when>` inside an `<action>` — EMPTY. */
 export type When = {
@@ -264,37 +264,37 @@ export type When = {
      * indicating the base (initial) state. A `<when>` with state `"none"` must
      * be the first in its enclosing `<action>`.
      */
-    readonly state: string;
+    readonly state: string
     /**
      * If present, this `<when>` specifies a range of states and `state` is the
      * beginning of that range (a decimal number).
      */
-    readonly through?: string;
+    readonly through?: string
     /**
      * String to emit. For single-state actions one of `output` or `next` must
      * be present. If a range is specified, this must be a single UTF-16 code
      * point.
      */
-    readonly output?: string;
+    readonly output?: string
     /**
      * Decimal number between 1 and 255. Only valid when `through` is present.
      * The difference between the input state and the start of the range is
      * multiplied by this number, then added to the `next` state and/or the
      * output UTF-16 value.
      */
-    readonly multiplier?: string;
+    readonly multiplier?: string
     /**
      * Next state to enter. Defaults to `"none"` (the base state). Must not be
      * specified inside `<terminators>`.
      */
-    readonly next?: string;
-  };
-} & Partial<Comment>;
+    readonly next?: string
+  }
+} & Partial<Comment>
 
 /** `<terminators>` — container for one or more `<when>` entries. */
 export type Terminators = {
-  readonly when: OneOrMore<TerminatorWhen>;
-} & Partial<Comment>;
+  readonly when: OneOrMore<TerminatorWhen>
+} & Partial<Comment>
 
 /**
  * `<when>` inside `<terminators>`. Terminators specify what to do when no
@@ -307,8 +307,8 @@ export type TerminatorWhen = {
      * The state the state machine must be in for this terminator to apply. May
      * be an arbitrary string, a decimal number, or `"none"`.
      */
-    readonly state: string;
+    readonly state: string
     /** String to emit. Defaults to no output. */
-    readonly output?: string;
-  };
-} & Partial<Comment>;
+    readonly output?: string
+  }
+} & Partial<Comment>

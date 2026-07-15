@@ -9,7 +9,7 @@
  * character-producing key set.
  */
 
-import type { KeyCode } from "./generated/layout.js";
+import type { KeyCode } from "./generated/layout.js"
 
 /** The main keyboard panel: rows ordered from top (number row) to bottom. */
 export const MAIN_PANEL_CODES = [
@@ -74,7 +74,7 @@ export const MAIN_PANEL_CODES = [
   ],
   // Row A: space row (all modifiers, except Space itself)
   ["Space"],
-] as const satisfies KeyCode[][];
+] as const satisfies KeyCode[][]
 
 /** The keypad panel: rows ordered from top to bottom. */
 export const KEYPAD_PANEL_CODES = [
@@ -83,4 +83,4 @@ export const KEYPAD_PANEL_CODES = [
   ["Numpad4", "Numpad5", "Numpad6"],
   ["Numpad1", "Numpad2", "Numpad3", "NumpadEnter"],
   ["Numpad0", "NumpadDecimal"],
-] as const satisfies KeyCode[][];
+] as const satisfies KeyCode[][]

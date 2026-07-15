@@ -1,4 +1,4 @@
-import type { KeyCode } from "neo-layout-model";
+import type { KeyCode } from "neo-layout-model"
 
 /**
  * Maps each W3C UI Events `KeyboardEvent.code` value defined in
@@ -86,4 +86,4 @@ export const APPLE_VIRTUAL_KEY_CODES: { [K in KeyCode]: number } = {
   NumpadEnter: 76,
   Numpad0: 82,
   NumpadDecimal: 65,
-};
+}
