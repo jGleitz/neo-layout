@@ -28,7 +28,7 @@ export class KeyboardLayoutBuilder {
     });
     this.modifierMap = keyboard.ele("modifierMap", {
       id: MODIFIER_MAP_ID,
-      defaultIndex: "1",
+      defaultIndex: 0,
     });
     this.keyMapSet = keyboard.ele("keyMapSet", { id: KEY_MAP_SET_ID });
   }

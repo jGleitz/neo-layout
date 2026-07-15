@@ -65,9 +65,9 @@ function atLeastOne<T>(values: readonly T[]): OneOrMore<T> {
 }
 
 function generateLevel1(layout: Neo2FamilyLayout): [XMLBuilder, XMLBuilder] {
-  const select = fragment().ele("keyMapSelect", { mapIndex: "1" });
+  const select = fragment().ele("keyMapSelect", { mapIndex: 0 });
   select.ele("modifier", { keys: "" });
-  const map = fragment().ele("keyMap", { index: "1" });
+  const map = fragment().ele("keyMap", { index: 0 });
   for (const [code, effect] of Object.entries(layout.levels.level1)) {
     let appleEffect!: string;
     if (typeof effect === "string") {
