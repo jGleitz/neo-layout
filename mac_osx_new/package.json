@@ -8,7 +8,7 @@
     "format": "prettier --write .",
     "generate": "node dist/generate.js",
     "build": "pnpm compile && pnpm generate",
-    "install-bundle": "rm -rf \"$HOME/Library/Keyboard Layouts/neo-layouts_v3.bundle\" && cp -R neo-layouts_v3.bundle \"$HOME/Library/Keyboard Layouts/\""
+    "install-bundle": "rm -rf \"$HOME/Library/Keyboard Layouts/neo-layouts-v3.bundle\" && cp -R neo-layouts-v3.bundle \"$HOME/Library/Keyboard Layouts/\""
   },
   "dependencies": {
     "fast-xml-builder": "catalog:",

@@ -19,13 +19,13 @@ const MODELS_PATH = path.join(
 const BUNDLE_PATH = path.join(
   import.meta.dirname,
   "..",
-  "neo-layouts_v3.bundle",
+  "neo-layouts-v3.bundle",
 );
 
 function initBundleInfo(bundle: MacOsBundle) {
   bundle.info = {
     CFBundleIdentifier: "org.neo-layout.neo-layouts",
-    CFBundleName: "Neo Layouts (v3)",
+    CFBundleName: path.basename(bundle.dir),
     CFBundleVersion: "3.0.0",
   };
 }
@@ -45,14 +45,14 @@ function generateLayoutInfo(bundle: MacOsBundle, layout: Neo2FamilyLayout) {
     TICapsLockLanguageSwitchCapable: false,
     TISIntendedLanguage: "de",
   };
-  const existingTranslations =
-    bundle.resources[`de/lproj/InfoPlist.strings`]?.split("\n") ?? [];
-  bundle.resources[`de/lproj/InfoPlist.strings`] = [
-    ...existingTranslations,
-    `"${layout.displayName}" = "${layout.displayName}";`,
-  ]
-    .sort((a, b) => a.localeCompare(b, "de"))
-    .join("\n");
+  // const existingTranslations =
+  //   bundle.resources[`de/lproj/InfoPlist.strings`]?.split("\n") ?? [];
+  // bundle.resources[`de/lproj/InfoPlist.strings`] = [
+  //   ...existingTranslations,
+  //   `"${layout.displayName}" = "${layout.displayName}";`,
+  // ]
+  //   .sort((a, b) => a.localeCompare(b, "de"))
+  //   .join("\n");
 }
 
 export function generateKeylayout(
