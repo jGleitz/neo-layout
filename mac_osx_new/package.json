@@ -4,10 +4,11 @@
   "description": "Neo keyboard layout generator for macOS",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "compile": "tsc",
     "format": "prettier --write .",
     "generate": "node dist/generate.js",
-    "install-bundle": "pnpm build && pnpm generate && rm -rf \"$HOME/Library/Keyboard Layouts/neo-layouts_v3.bundle\" && cp -R neo-layouts_v3.bundle/ \"$HOME/Library/Keyboard Layouts/\""
+    "build": "pnpm build && pnpm generate",
+    "install-bundle": "rm -rf \"$HOME/Library/Keyboard Layouts/neo-layouts_v3.bundle\" && cp -R neo-layouts_v3.bundle/ \"$HOME/Library/Keyboard Layouts/\""
   },
   "dependencies": {
     "fast-xml-builder": "catalog:",
