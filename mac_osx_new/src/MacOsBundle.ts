@@ -31,10 +31,16 @@ export class MacOsBundle {
         new PlistFile(this.version).contentString(),
       ),
       ...Object.entries(this.resources).map(([fileName, content]) =>
-        fs.writeFile(
-          path.join(this.dir, "Contents", "Resources", fileName),
-          content,
-        ),
+        (async () => {
+          const filePath = path.join(
+            this.dir,
+            "Contents",
+            "Resources",
+            fileName,
+          );
+          await fs.mkdir(path.dirname(filePath), {recursive: true});
+          await fs.writeFile(filePath, content);
+        })(),
       ),
     ]);
   }

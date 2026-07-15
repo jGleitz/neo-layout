@@ -35,7 +35,7 @@ const SOURCES: ReadonlyArray<
 ];
 
 async function main(): Promise<void> {
-  await fs.rm(OUTPUT_DIR, {recursive: true, force: true});
+  await fs.rm(OUTPUT_DIR, { recursive: true, force: true });
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
   let allValid = true;
 

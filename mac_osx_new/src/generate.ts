@@ -45,6 +45,14 @@ function generateLayoutInfo(bundle: MacOsBundle, layout: Neo2FamilyLayout) {
     TICapsLockLanguageSwitchCapable: false,
     TISIntendedLanguage: "de",
   };
+  const existingTranslations =
+    bundle.resources[`de/lproj/InfoPlist.strings`]?.split("\n") ?? [];
+  bundle.resources[`de/lproj/InfoPlist.strings`] = [
+    ...existingTranslations,
+    `"${layout.displayName}" = "${layout.displayName}";`,
+  ]
+    .sort((a, b) => a.localeCompare(b, "de"))
+    .join("\n");
 }
 
 export function generateKeylayout(
