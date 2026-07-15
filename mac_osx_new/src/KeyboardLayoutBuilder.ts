@@ -19,6 +19,7 @@ export class KeyboardLayoutBuilder {
       group: "126", // value taken from pre-existing layout. TODO understand
       id: -Math.abs(createHash("sha256").update(id).digest().readInt16BE()), // TODO understand
       name: displayName,
+      maxout: 1 // TODO
     });
     keyboard.ele("layouts").ele("layout", {
       first: "0", // TODO,
