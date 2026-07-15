@@ -34,7 +34,7 @@ export class PlistFile {
 
   private writeDict(xml: XMLBuilder, obj: PlistObject) {
     const dict = xml.ele("dict");
-    for (const [key, value] of Object.entries(obj)) {
+    for (const [key, value] of Object.entries(obj).sort()) {
       dict.ele("key").txt(key);
       this.writeProperty(dict, value);
     }

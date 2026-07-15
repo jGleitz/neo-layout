@@ -10,34 +10,34 @@
     <string>3.0.0</string>
     <key>KLInfo_Deutsch (Bone v3)</key>
     <dict>
-      <key>TISInputSourceID</key>
-      <string>org.neo-layout.neo-layouts.de.bone</string>
-      <key>TISIconIsTemplate</key>
-      <false/>
       <key>TICapsLockLanguageSwitchCapable</key>
       <false/>
+      <key>TISIconIsTemplate</key>
+      <false/>
+      <key>TISInputSourceID</key>
+      <string>org.neo-layout.neo-layouts.de.bone</string>
       <key>TISIntendedLanguage</key>
       <string>de</string>
     </dict>
     <key>KLInfo_Deutsch (Neo 2 v3)</key>
     <dict>
-      <key>TISInputSourceID</key>
-      <string>org.neo-layout.neo-layouts.de.neo2</string>
-      <key>TISIconIsTemplate</key>
-      <false/>
       <key>TICapsLockLanguageSwitchCapable</key>
       <false/>
+      <key>TISIconIsTemplate</key>
+      <false/>
+      <key>TISInputSourceID</key>
+      <string>org.neo-layout.neo-layouts.de.neo2</string>
       <key>TISIntendedLanguage</key>
       <string>de</string>
     </dict>
     <key>KLInfo_Deutsch (Neo-QWERTZ v3)</key>
     <dict>
-      <key>TISInputSourceID</key>
-      <string>org.neo-layout.neo-layouts.de.neoqwertz</string>
-      <key>TISIconIsTemplate</key>
-      <false/>
       <key>TICapsLockLanguageSwitchCapable</key>
       <false/>
+      <key>TISIconIsTemplate</key>
+      <false/>
+      <key>TISInputSourceID</key>
+      <string>org.neo-layout.neo-layouts.de.neoqwertz</string>
       <key>TISIntendedLanguage</key>
       <string>de</string>
     </dict>
