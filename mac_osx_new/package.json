@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "compile": "tsc",
+    "lint": "prettier --check .",
     "format": "prettier --write .",
     "generate": "node dist/generate.js",
     "build": "pnpm compile && pnpm generate",

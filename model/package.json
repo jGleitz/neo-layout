@@ -13,6 +13,7 @@
     "schema:types": "json2ts --unreachableDefinitions --input layout.schema.yaml --output src/generated/layout.ts",
     "compile": "tsc",
     "build": "pnpm schema:types && pnpm compile && pnpm generate",
+    "lint": "prettier --check .",
     "format": "prettier --write .",
     "generate": "node dist/convert.js"
   },
