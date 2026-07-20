@@ -1,132 +1,112 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE keyboard PUBLIC "-//Apple//DTD Keyboard Layout//EN"
+  "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <keyboard group="126" id="-19017" name="Deutsch (Bone v3)" maxout="1">
   <layouts>
     <layout first="0" last="0" modifiers="mainModifierMap" mapSet="mainKeyMapSet"/>
   </layouts>
   <modifierMap id="mainModifierMap" defaultIndex="0">
-    <keyMapSelect mapIndex="0">
-      <modifier keys=""/>
-    </keyMapSelect>
+    <keyMapSelect mapIndex="0"><modifier keys=""/></keyMapSelect>
   </modifierMap>
   <keyMapSet id="mainKeyMapSet">
     <keyMap index="0">
-      <!--Digit1 → "1"-->
-      <key code="18" output="1"/>
-      <!--Digit2 → "2"-->
-      <key code="19" output="2"/>
-      <!--Digit3 → "3"-->
-      <key code="20" output="3"/>
-      <!--Digit4 → "4"-->
-      <key code="21" output="4"/>
-      <!--Digit5 → "5"-->
-      <key code="23" output="5"/>
-      <!--Digit6 → "6"-->
-      <key code="22" output="6"/>
-      <!--Digit7 → "7"-->
-      <key code="26" output="7"/>
-      <!--Digit8 → "8"-->
-      <key code="28" output="8"/>
-      <!--Digit9 → "9"-->
-      <key code="25" output="9"/>
-      <!--Digit0 → "0"-->
-      <key code="29" output="0"/>
-      <!--Minus → "-"-->
-      <key code="27" output="-"/>
-      <!--KeyQ → "j"-->
-      <key code="12" output="j"/>
-      <!--KeyW → "d"-->
-      <key code="13" output="d"/>
-      <!--KeyE → "u"-->
-      <key code="14" output="u"/>
-      <!--KeyR → "a"-->
-      <key code="15" output="a"/>
-      <!--KeyT → "x"-->
-      <key code="17" output="x"/>
-      <!--KeyY → "p"-->
-      <key code="16" output="p"/>
-      <!--KeyU → "h"-->
-      <key code="32" output="h"/>
-      <!--KeyI → "l"-->
-      <key code="34" output="l"/>
-      <!--KeyO → "m"-->
-      <key code="31" output="m"/>
-      <!--KeyP → "w"-->
-      <key code="35" output="w"/>
-      <!--BracketLeft → "ß"-->
-      <key code="33" output="ß"/>
-      <!--KeyA → "c"-->
       <key code="0" output="c"/>
-      <!--KeyS → "t"-->
       <key code="1" output="t"/>
-      <!--KeyD → "i"-->
       <key code="2" output="i"/>
-      <!--KeyF → "e"-->
       <key code="3" output="e"/>
-      <!--KeyG → "o"-->
-      <key code="5" output="o"/>
-      <!--KeyH → "b"-->
       <key code="4" output="b"/>
-      <!--KeyJ → "n"-->
-      <key code="38" output="n"/>
-      <!--KeyK → "r"-->
-      <key code="40" output="r"/>
-      <!--KeyL → "s"-->
-      <key code="37" output="s"/>
-      <!--Semicolon → "g"-->
-      <key code="41" output="g"/>
-      <!--Quote → "q"-->
-      <key code="39" output="q"/>
-      <!--KeyZ → "f"-->
+      <key code="5" output="o"/>
       <key code="6" output="f"/>
-      <!--KeyX → "v"-->
       <key code="7" output="v"/>
-      <!--KeyC → "ü"-->
       <key code="8" output="ü"/>
-      <!--KeyV → "ä"-->
       <key code="9" output="ä"/>
-      <!--KeyB → "ö"-->
       <key code="11" output="ö"/>
-      <!--KeyN → "y"-->
-      <key code="45" output="y"/>
-      <!--KeyM → "z"-->
-      <key code="46" output="z"/>
-      <!--Comma → ","-->
+      <key code="12" output="j"/>
+      <key code="13" output="d"/>
+      <key code="14" output="u"/>
+      <key code="15" output="a"/>
+      <key code="16" output="p"/>
+      <key code="17" output="x"/>
+      <key code="18" output="1"/>
+      <key code="19" output="2"/>
+      <key code="20" output="3"/>
+      <key code="21" output="4"/>
+      <key code="22" output="6"/>
+      <key code="23" output="5"/>
+      <key code="25" output="9"/>
+      <key code="26" output="7"/>
+      <key code="27" output="-"/>
+      <key code="28" output="8"/>
+      <key code="29" output="0"/>
+      <key code="31" output="m"/>
+      <key code="32" output="h"/>
+      <key code="33" output="ß"/>
+      <key code="34" output="l"/>
+      <key code="35" output="w"/>
+      <key code="36" output="&#x000D;"/>
+      <key code="37" output="s"/>
+      <key code="38" output="n"/>
+      <key code="39" output="q"/>
+      <key code="40" output="r"/>
+      <key code="41" output="g"/>
       <key code="43" output=","/>
-      <!--Period → "."-->
-      <key code="47" output="."/>
-      <!--Slash → "k"-->
       <key code="44" output="k"/>
-      <!--NumpadDivide → "/"-->
-      <key code="75" output="/"/>
-      <!--NumpadMultiply → "*"-->
-      <key code="67" output="*"/>
-      <!--NumpadSubtract → "-"-->
-      <key code="78" output="-"/>
-      <!--Numpad7 → "7"-->
-      <key code="89" output="7"/>
-      <!--Numpad8 → "8"-->
-      <key code="91" output="8"/>
-      <!--Numpad9 → "9"-->
-      <key code="92" output="9"/>
-      <!--Numpad4 → "4"-->
-      <key code="86" output="4"/>
-      <!--Numpad5 → "5"-->
-      <key code="87" output="5"/>
-      <!--Numpad6 → "6"-->
-      <key code="88" output="6"/>
-      <!--NumpadAdd → "+"-->
-      <key code="69" output="+"/>
-      <!--Numpad1 → "1"-->
-      <key code="83" output="1"/>
-      <!--Numpad2 → "2"-->
-      <key code="84" output="2"/>
-      <!--Numpad3 → "3"-->
-      <key code="85" output="3"/>
-      <!--Numpad0 → "0"-->
-      <key code="82" output="0"/>
-      <!--NumpadDecimal → ","-->
+      <key code="45" output="y"/>
+      <key code="46" output="z"/>
+      <key code="47" output="."/>
+      <key code="48" output="&#x0009;"/>
+      <key code="51" output="&#x0008;"/>
+      <key code="53" output="&#x001B;"/>
+      <key code="64" output="&#x0010;"/>
       <key code="65" output=","/>
+      <key code="66" output="&#x001D;"/>
+      <key code="67" output="*"/>
+      <key code="69" output="+"/>
+      <key code="70" output="&#x001C;"/>
+      <key code="71" output="&#x001B;"/>
+      <key code="72" output="&#x001F;"/>
+      <key code="75" output="/"/>
+      <key code="76" output="&#x0003;"/>
+      <key code="77" output="&#x001E;"/>
+      <key code="78" output="-"/>
+      <key code="79" output="&#x0010;"/>
+      <key code="80" output="&#x0010;"/>
+      <key code="82" output="0"/>
+      <key code="83" output="1"/>
+      <key code="84" output="2"/>
+      <key code="85" output="3"/>
+      <key code="86" output="4"/>
+      <key code="87" output="5"/>
+      <key code="88" output="6"/>
+      <key code="89" output="7"/>
+      <key code="91" output="8"/>
+      <key code="92" output="9"/>
+      <key code="96" output="&#x0010;"/>
+      <key code="97" output="&#x0010;"/>
+      <key code="98" output="&#x0010;"/>
+      <key code="99" output="&#x0010;"/>
+      <key code="100" output="&#x0010;"/>
+      <key code="101" output="&#x0010;"/>
+      <key code="103" output="&#x0010;"/>
+      <key code="105" output="&#x0010;"/>
+      <key code="106" output="&#x0010;"/>
+      <key code="107" output="&#x0010;"/>
+      <key code="109" output="&#x0010;"/>
+      <key code="111" output="&#x0010;"/>
+      <key code="113" output="&#x0010;"/>
+      <key code="114" output="&#x0005;"/>
+      <key code="115" output="&#x0001;"/>
+      <key code="116" output="&#x000B;"/>
+      <key code="117" output="&#x007F;"/>
+      <key code="118" output="&#x0010;"/>
+      <key code="119" output="&#x0004;"/>
+      <key code="120" output="&#x0010;"/>
+      <key code="121" output="&#x000C;"/>
+      <key code="122" output="&#x0010;"/>
+      <key code="123" output="&#x001C;"/>
+      <key code="124" output="&#x001D;"/>
+      <key code="125" output="&#x001F;"/>
+      <key code="126" output="&#x001E;"/>
     </keyMap>
   </keyMapSet>
 </keyboard>
