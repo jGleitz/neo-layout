@@ -32,9 +32,6 @@ jobs:
       - name: Build
         run: pnpm build
       - name: Build Validator
-        run: cargo build --manifest-path mac_osx_new/keylayout-validator/Cargo.toml --release
+        run: pnpm --dir mac_osx_new validator:build
       - name: Validate
-        run: |
-          ./mac_osx_new/keylayout-validator/target/release/keylayout-validator \
-          --strict \
-          mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/
+        run: pnpm --dir mac_osx_new validator:run

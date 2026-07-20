@@ -9,6 +9,9 @@
     "format": "prettier --write .",
     "generate": "node dist/generate.js",
     "build": "pnpm compile && pnpm generate",
+    "validator:build": "cargo build --manifest-path keylayout-validator/Cargo.toml --release",
+    "validator:run": "./keylayout-validator/target/release/keylayout-validator --strict neo-layouts-v3.bundle/Contents/Resources/",
+    "validate": "pnpm validator:build && pnpm validator:run",
     "install-bundle": "rm -rf \"$HOME/Library/Keyboard Layouts/neo-layouts-v3.bundle\" && cp -R neo-layouts-v3.bundle \"$HOME/Library/Keyboard Layouts/\""
   },
   "dependencies": {

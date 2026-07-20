@@ -9,6 +9,7 @@
     "generate": "pnpm -r generate",
     "lint": "pnpm -r lint",
     "format": "pnpm -r format",
+    "validate": "pnpm -r --if-present validate",
     "install-bundle": "pnpm build && pnpm -r --if-present install-bundle"
   },
   "devDependencies": {
