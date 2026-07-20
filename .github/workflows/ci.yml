@@ -90,7 +90,8 @@ jobs:
           cp -R mac_osx_new/neo-layouts-v3.bundle "$layout_dir/"
 
           echo "=== Starting log stream ==="
-          log stream --predicate 'eventMessage CONTAINS "uchr XML compiler"' > /tmp/keylayout-log.txt 2>&1 &
+          # Use a predicate that does not echo our search term in its own banner.
+          log stream --predicate 'sender == "TextInputMenuAgent" OR sender == "UIKit" OR process == "UIKit"' > /tmp/keylayout-log.txt 2>&1 &
           LOG_PID=$!
 
           # Force the Keyboard Layouts directory mtime to change.
@@ -103,11 +104,51 @@ jobs:
           echo "=== Log stream output ==="
           cat /tmp/keylayout-log.txt
 
+          echo "=== Recent unified logs (last 2m) ==="
+          log show --last 2m --predicate 'eventMessage CONTAINS "uchr XML compiler"' 2>&1 | head -n 100 || true
+
           if grep -qi "uchr XML compiler" /tmp/keylayout-log.txt; then
-            echo "::error::Detected keylayout compiler error in logs"
+            echo "::error::Detected keylayout compiler error in stream"
+            exit 1
+          fi
+          if log show --last 2m --predicate 'eventMessage CONTAINS "uchr XML compiler"' 2>&1 | grep -qi "uchr XML compiler"; then
+            echo "::error::Detected keylayout compiler error in log show"
             exit 1
           fi
           echo "No 'uchr XML compiler' errors detected in logs"
+        continue-on-error: true
+
+      - name: Test broken keylayout log detection
+        run: |
+          broken_dir="$HOME/Library/Keyboard Layouts"
+          cp "mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/Deutsch (Neo 2 v3).keylayout" "$broken_dir/broken.keylayout"
+          # Duplicate a key code to create a semantic error.
+          sed -i '' 's|<key code="18" output="1"/>|<key code="18" output="1"/>\n      <key code="18" output="X"/>|' "$broken_dir/broken.keylayout"
+
+          echo "=== Starting log stream for broken layout ==="
+          log stream --predicate 'sender == "TextInputMenuAgent" OR sender == "UIKit" OR process == "UIKit"' > /tmp/broken-log.txt 2>&1 &
+          LOG_PID=$!
+          touch "$broken_dir"
+          sleep 12
+          kill "$LOG_PID" 2>/dev/null || true
+          wait "$LOG_PID" 2>/dev/null || true
+
+          echo "=== Broken layout log stream output ==="
+          cat /tmp/broken-log.txt
+
+          echo "=== Recent unified logs for broken layout ==="
+          log show --last 2m --predicate 'eventMessage CONTAINS "uchr XML compiler"' 2>&1 | head -n 100 || true
+          log show --last 2m 2>&1 | grep -i "uchr XML compiler" | head -n 100 || true
+
+          if grep -qi "uchr XML compiler" /tmp/broken-log.txt; then
+            echo "Detected broken-keylayout compiler error in stream"
+            exit 0
+          fi
+          if log show --last 2m 2>&1 | grep -qi "uchr XML compiler"; then
+            echo "Detected broken-keylayout compiler error in log show"
+            exit 0
+          fi
+          echo "Broken-keylayout test did NOT produce detectable compiler logs"
         continue-on-error: true
 
       # Fallback: at least validate XML well-formedness and DTD conformance.
