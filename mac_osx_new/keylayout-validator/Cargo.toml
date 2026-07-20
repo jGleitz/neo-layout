@@ -1,0 +1,9 @@
+[package]
+name = "keylayout-validator"
+version = "0.1.0"
+edition = "2021"
+description = "CLI validator for generated macOS .keylayout files, powered by Keymano's keylayout-core"
+license = "Apache-2.0"
+
+[dependencies]
+keylayout-core = { git = "https://github.com/ysalitrynskyi/keymano", tag = "v0.2.2" }

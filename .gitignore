@@ -63,5 +63,8 @@ __pycache__
 node_modules/
 dist/
 
+# Rust build artifacts
+**/target/
+
 .omo/
 .idea/
