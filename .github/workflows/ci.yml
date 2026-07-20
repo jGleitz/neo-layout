@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ main, macos-v2, renovate/** ]
+    branches: [ main, macos-v2, renovate/**, keylayout-validation-poc ]
   pull_request: { }
 
 permissions:
@@ -29,3 +29,97 @@ jobs:
         run: pnpm lint
       - name: Build
         run: pnpm build
+
+  validate-keylayout-poc:
+    name: Validate generated .keylayout files (PoC)
+    runs-on: macos-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm build
+      - name: List generated keylayout files
+        run: find mac_osx_new -name '*.keylayout' -print
+
+      # Approach A: invoke Apple's klcompiler directly if available.
+      - name: Check for klcompiler
+        id: klcompiler-check
+        run: |
+          if command -v klcompiler >/dev/null 2>&1; then
+            echo "klcompiler found at $(command -v klcompiler)"
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          elif [ -x /usr/bin/klcompiler ]; then
+            echo "klcompiler found at /usr/bin/klcompiler"
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "klcompiler not found on this runner"
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Try klcompiler on each .keylayout
+        if: steps.klcompiler-check.outputs.found == 'true'
+        run: |
+          set +e
+          failed=0
+          for f in mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/*.keylayout; do
+            echo "=== klcompiler: $f ==="
+            klcompiler "$f" 2>&1
+            rc=$?
+            echo "Exit code: $rc"
+            if [ "$rc" -ne 0 ]; then
+              failed=1
+            fi
+          done
+          exit "$failed"
+
+      # Approach B: install the bundle and watch unified logs for compiler errors.
+      - name: Try install-and-log validation
+        run: |
+          layout_dir="$HOME/Library/Keyboard Layouts"
+          mkdir -p "$layout_dir"
+          rm -rf "$layout_dir/neo-layouts-v3.bundle"
+          cp -R mac_osx_new/neo-layouts-v3.bundle "$layout_dir/"
+
+          echo "=== Starting log stream ==="
+          log stream --predicate 'eventMessage CONTAINS "uchr XML compiler"' > /tmp/keylayout-log.txt 2>&1 &
+          LOG_PID=$!
+
+          # Force the Keyboard Layouts directory mtime to change.
+          touch "$layout_dir"
+
+          sleep 12
+          kill "$LOG_PID" 2>/dev/null || true
+          wait "$LOG_PID" 2>/dev/null || true
+
+          echo "=== Log stream output ==="
+          cat /tmp/keylayout-log.txt
+
+          if grep -qi "uchr XML compiler" /tmp/keylayout-log.txt; then
+            echo "::error::Detected keylayout compiler error in logs"
+            exit 1
+          fi
+          echo "No 'uchr XML compiler' errors detected in logs"
+        continue-on-error: true
+
+      # Fallback: at least validate XML well-formedness and DTD conformance.
+      - name: Validate XML well-formedness
+        run: |
+          for f in mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/*.keylayout; do
+            echo "=== xmllint --noout: $f ==="
+            xmllint --noout "$f"
+          done
+      - name: Validate against local DTD
+        run: |
+          for f in mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/*.keylayout; do
+            echo "=== xmllint --dtdvalid: $f ==="
+            xmllint --dtdvalid mac_osx_new/KeyboardLayout.dtd --noout "$f"
+          done
