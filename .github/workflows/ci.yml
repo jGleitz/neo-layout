@@ -30,8 +30,8 @@ jobs:
       - name: Build
         run: pnpm build
 
-  validate-keylayout-poc:
-    name: Validate generated .keylayout files (PoC)
+  validate-keylayout:
+    name: Validate generated macOS keylayouts
     runs-on: macos-latest
     needs: test
     steps:
@@ -48,119 +48,19 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build
         run: pnpm build
-      - name: List generated keylayout files
-        run: find mac_osx_new -name '*.keylayout' -print
-
-      # Approach A: invoke Apple's klcompiler directly if available.
-      - name: Check for klcompiler
-        id: klcompiler-check
-        run: |
-          if command -v klcompiler >/dev/null 2>&1; then
-            echo "klcompiler found at $(command -v klcompiler)"
-            echo "found=true" >> "$GITHUB_OUTPUT"
-          elif [ -x /usr/bin/klcompiler ]; then
-            echo "klcompiler found at /usr/bin/klcompiler"
-            echo "found=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "klcompiler not found on this runner"
-            echo "found=false" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Try klcompiler on each .keylayout
-        if: steps.klcompiler-check.outputs.found == 'true'
-        run: |
-          set +e
-          failed=0
-          for f in mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/*.keylayout; do
-            echo "=== klcompiler: $f ==="
-            klcompiler "$f" 2>&1
-            rc=$?
-            echo "Exit code: $rc"
-            if [ "$rc" -ne 0 ]; then
-              failed=1
-            fi
-          done
-          exit "$failed"
-
-      # Approach B: install the bundle and watch unified logs for compiler errors.
-      - name: Try install-and-log validation
-        run: |
-          layout_dir="$HOME/Library/Keyboard Layouts"
-          mkdir -p "$layout_dir"
-          rm -rf "$layout_dir/neo-layouts-v3.bundle"
-          cp -R mac_osx_new/neo-layouts-v3.bundle "$layout_dir/"
-
-          echo "=== Starting log stream ==="
-          # Use a predicate that does not echo our search term in its own banner.
-          log stream --predicate 'sender == "TextInputMenuAgent" OR sender == "UIKit" OR process == "UIKit"' > /tmp/keylayout-log.txt 2>&1 &
-          LOG_PID=$!
-
-          # Force the Keyboard Layouts directory mtime to change.
-          touch "$layout_dir"
-
-          sleep 12
-          kill "$LOG_PID" 2>/dev/null || true
-          wait "$LOG_PID" 2>/dev/null || true
-
-          echo "=== Log stream output ==="
-          cat /tmp/keylayout-log.txt
-
-          echo "=== Recent unified logs (last 2m) ==="
-          log show --last 2m --predicate 'eventMessage CONTAINS "uchr XML compiler"' 2>&1 | head -n 100 || true
-
-          if grep -qi "uchr XML compiler" /tmp/keylayout-log.txt; then
-            echo "::error::Detected keylayout compiler error in stream"
-            exit 1
-          fi
-          if log show --last 2m --predicate 'eventMessage CONTAINS "uchr XML compiler"' 2>&1 | grep -qi "uchr XML compiler"; then
-            echo "::error::Detected keylayout compiler error in log show"
-            exit 1
-          fi
-          echo "No 'uchr XML compiler' errors detected in logs"
-        continue-on-error: true
-
-      - name: Test broken keylayout log detection
-        run: |
-          broken_dir="$HOME/Library/Keyboard Layouts"
-          cp "mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/Deutsch (Neo 2 v3).keylayout" "$broken_dir/broken.keylayout"
-          # Duplicate a key code to create a semantic error.
-          sed -i '' 's|<key code="18" output="1"/>|<key code="18" output="1"/>\n      <key code="18" output="X"/>|' "$broken_dir/broken.keylayout"
-
-          echo "=== Starting log stream for broken layout ==="
-          log stream --predicate 'sender == "TextInputMenuAgent" OR sender == "UIKit" OR process == "UIKit"' > /tmp/broken-log.txt 2>&1 &
-          LOG_PID=$!
-          touch "$broken_dir"
-          sleep 12
-          kill "$LOG_PID" 2>/dev/null || true
-          wait "$LOG_PID" 2>/dev/null || true
-
-          echo "=== Broken layout log stream output ==="
-          cat /tmp/broken-log.txt
-
-          echo "=== Recent unified logs for broken layout ==="
-          log show --last 2m --predicate 'eventMessage CONTAINS "uchr XML compiler"' 2>&1 | head -n 100 || true
-          log show --last 2m 2>&1 | grep -i "uchr XML compiler" | head -n 100 || true
-
-          if grep -qi "uchr XML compiler" /tmp/broken-log.txt; then
-            echo "Detected broken-keylayout compiler error in stream"
-            exit 0
-          fi
-          if log show --last 2m 2>&1 | grep -qi "uchr XML compiler"; then
-            echo "Detected broken-keylayout compiler error in log show"
-            exit 0
-          fi
-          echo "Broken-keylayout test did NOT produce detectable compiler logs"
-        continue-on-error: true
-
-      # Fallback: at least validate XML well-formedness and DTD conformance.
-      - name: Validate XML well-formedness
+      - name: Validate keylayout XML against DTD
         run: |
           for f in mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/*.keylayout; do
-            echo "=== xmllint --noout: $f ==="
-            xmllint --noout "$f"
-          done
-      - name: Validate against local DTD
-        run: |
-          for f in mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/*.keylayout; do
-            echo "=== xmllint --dtdvalid: $f ==="
+            echo "=== Validating $f ==="
             xmllint --dtdvalid mac_osx_new/KeyboardLayout.dtd --noout "$f"
           done
+      - name: Verify validator catches malformed keylayout
+        run: |
+          cp "mac_osx_new/neo-layouts-v3.bundle/Contents/Resources/Deutsch (Neo 2 v3).keylayout" /tmp/malformed.keylayout
+          # Remove a required attribute to create a DTD violation.
+          sed -i '' 's/ code="18"//' /tmp/malformed.keylayout
+          if xmllint --dtdvalid mac_osx_new/KeyboardLayout.dtd --noout /tmp/malformed.keylayout 2>&1; then
+            echo "::error::xmllint did not reject the malformed keylayout"
+            exit 1
+          fi
+          echo "xmllint correctly rejected the malformed keylayout"
