@@ -7,6 +7,11 @@
   </layouts>
   <modifierMap id="mainModifierMap" defaultIndex="0">
     <keyMapSelect mapIndex="0"><modifier keys=""/></keyMapSelect>
+    <keyMapSelect mapIndex="1"><modifier keys="anyShift caps?"/></keyMapSelect>
+    <keyMapSelect mapIndex="2"><modifier keys="caps"/></keyMapSelect>
+    <keyMapSelect mapIndex="3"><modifier keys="anyOption"/></keyMapSelect>
+    <keyMapSelect mapIndex="4"><modifier keys="anyShift anyOption"/></keyMapSelect>
+    <keyMapSelect mapIndex="5"><modifier keys="command"/></keyMapSelect>
   </modifierMap>
   <keyMapSet id="mainKeyMapSet">
     <keyMap index="0">
@@ -107,6 +112,21 @@
       <key code="124" output="&#x001D;"/>
       <key code="125" output="&#x001F;"/>
       <key code="126" output="&#x001E;"/>
+    </keyMap>
+    <keyMap index="1">
+      <key code="512" output=""/>
+    </keyMap>
+    <keyMap index="2">
+      <key code="512" output=""/>
+    </keyMap>
+    <keyMap index="3">
+      <key code="512" output=""/>
+    </keyMap>
+    <keyMap index="4">
+      <key code="512" output=""/>
+    </keyMap>
+    <keyMap index="5">
+      <key code="512" output=""/>
     </keyMap>
   </keyMapSet>
 </keyboard>
